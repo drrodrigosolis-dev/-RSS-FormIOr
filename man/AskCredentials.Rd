@@ -13,6 +13,6 @@ Vector of 2
 Function to get the credentials that will be used to access the Form's API. Generally this function will be called from within GetResponses()
 }
 \examples{
- AskCredentials()
+AskCredentials()
 
 }

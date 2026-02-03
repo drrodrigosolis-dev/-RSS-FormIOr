@@ -1,7 +1,5 @@
-library(httr)
-library(jsonlite)
 
-#' Get Responses
+#' Get Responses submitted to a FormIO Form
 #'
 #' @param base_url URL where the form is stored. for the Gov't of BC, the URL is "https://submit.digital.gov.bc.ca/app/api/v1"(default)
 #' @param form_id if left  (Default), and credentials have not been entered, it will run AskCredentials() to obtain the information. You can find your Form's ID by going to your Form Settings page, and copying it from the URL (after the "=" sign in the URL)

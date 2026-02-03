@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetRespones.R
 \name{GetResponses}
 \alias{GetResponses}
-\title{Get Responses}
+\title{Get Responses submitted to a FormIO Form}
 \usage{
 GetResponses(
   base_url = "https://submit.digital.gov.bc.ca/app/api/v1",
@@ -33,7 +33,7 @@ GetResponses(
 if content.only= FALSE, returns a list with the submission data, content type, content disposition, and API status. IF False, it will only return the submission data as a data frame.
 }
 \description{
-Get Responses
+Get Responses submitted to a FormIO Form
 }
 \examples{
 #' \dontrun{ GetResponses(form_id = form_id, api_key = api_key, content.only = F)}
