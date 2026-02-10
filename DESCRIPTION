@@ -32,8 +32,12 @@ Imports:
     tidyr,
     utils
 Suggests:
+    knitr,
+    openxlsx,
+    pkgdown,
+    rmarkdown,
     testthat (>= 3.0.0),
     wordcloud,
-    openxlsx,
     writexl
 Config/testthat/edition: 3
+VignetteBuilder: knitr

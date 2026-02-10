@@ -1,0 +1,26 @@
+---
+title: "FormIOr Handbook"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FormIOr Handbook}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette provides access to the full FormIOr handbook.
+
+## Online handbook
+
+- <https://drrodrigosolis-dev.github.io/-RSS-FormIOr/handbook/index.html>
+
+## Installed handbook
+
+- HTML: `../extdata/handbook/index.html`
+- Markdown: `../extdata/handbook/index.md`
+
+If your viewer blocks local file links, use:
+
+```{r, eval = FALSE}
+handbook <- system.file("extdata", "handbook", "index.html", package = "FormIOr")
+browseURL(handbook)
+```

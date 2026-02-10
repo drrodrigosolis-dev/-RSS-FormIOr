@@ -16,3 +16,6 @@ workflow_plan\.json$
 ^FormIOr_output\\.xlsx$
 ^handbook_site$
 ^cran-comments\.md$
+^pkgdown\.yml$
+^docs$
+^\.github$

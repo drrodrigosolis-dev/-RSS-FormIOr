@@ -1,0 +1,16 @@
+url: https://drrodrigosolis-dev.github.io/-RSS-FormIOr
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [reference, articles, handbook]
+  components:
+    handbook:
+      text: Handbook
+      href: handbook/index.html
+
+articles:
+  - title: Handbook
+    contents:
+      - formior-handbook
