@@ -1,6 +1,6 @@
 Package: FormIOr
 Title: Download, Clean, and Export FormIO Submissions
-Version: 1.0.0
+Version: 1.0.1
 Authors@R:
     person("Rodrigo", "Solis Sosa", email = "dr.rodrigo.solis@gmail.com",
            role = c("aut", "cre"))
