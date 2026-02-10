@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FormIOr Cheat Sheet</title>
+<style>
+  :root {
+    --ink: #0b1f2a;
+    --muted: #4a5b68;
+    --bg: #f7f5f2;
+    --card: #ffffff;
+    --accent: #1b4965;
+  }
+  body {
+    margin: 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 64px 24px;
+  }
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: 36px;
+  }
+  .subtitle {
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: 0 6px 18px rgba(11,31,42,0.08);
+  }
+  .card h2 {
+    margin-top: 0;
+  }
+  .pill {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e7eef4;
+    color: #1b4965;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  pre {
+    background: #0f1720;
+    color: #e9eef2;
+    padding: 12px 14px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 12px;
+  }
+  .img-wrap {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #e3e6ea;
+  }
+  .two-col {
+    columns: 2;
+    column-gap: 28px;
+  }
+  .foot {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: 1fr; }
+    .two-col { columns: 1; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1>FormIOr Cheat Sheet</h1>
+    <div class="subtitle">Core workflow + key helpers in one glance. Last updated: 2026-02-05</div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="pill">Core Workflow</div>
+        <h2>Download -> Flatten -> Clean -> Diagnose -> Export</h2>
+        <div class="img-wrap">
+          <img src="assets/core-workflow.svg" alt="Core workflow diagram" style="width:100%; height:auto;"/>
+        </div>
+        <h3>CHEF credentials (quick visual)</h3>
+        <p>API key and Form ID are found on the form's <strong>Manage</strong> page.
+        The Form ID is the alphanumeric code after the <code>=</code> in the URL.</p>
+        <div class="img-wrap" style="margin-bottom:12px;">
+          <img src="assets/API.png" alt="CHEF API Key location" style="width:100%; height:auto;"/>
+        </div>
+        <div class="img-wrap">
+          <img src="assets/FormID.png" alt="CHEF Form ID location" style="width:100%; height:auto;"/>
+        </div>
+        <p><strong>Default CHEF base URL:</strong><br/>
+        <code>https://submit.digital.gov.bc.ca/app/api/v1</code></p>
+        <h3>Core Steps (Minimal Sequence)</h3>
+        <pre>
+raw <- GetResponses(form_id = "YOUR_FORM_ID")
+flat_raw <- FlattenSubmissions(raw)
+norm <- NormalizeColumnNames(flat_raw, return_flat = TRUE)
+flat <- norm$flat
+dedup <- DeduplicateSubmissions(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- dedup$flat
+resolved <- ResolveRepeats(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- resolved$flat
+codebook <- MakeCodebook(flat)
+# Optional: include labels from the form schema
+# form_meta <- GetFormMetadata(form_id = "your-form-id", api_key = "your-api-key")
+# codebook <- MakeCodebook(flat, form = form_meta, include = "all")
+summary_age <- SummaryByField(flat, field = "age")
+sheets <- list(
+  Raw_Flattened = flat_raw$FlatResponses,
+  Cleaned_Data = flat$FlatResponses,
+  Codebook = codebook,
+  Summary_Age = summary_age$summary
+)
+ExportToExcel(sheets, path = "FormIOr_output.xlsx", overwrite = TRUE)
+        </pre>
+      </div>
+
+      <div class="card">
+        <div class="pill">Wizard</div>
+        <h2>One command, guided prompts</h2>
+        <pre>
+out <- FormIOrWorkflow()
+        </pre>
+        <p>The wizard handles outputs, logging, downloads, flattening, cleaning,
+        diagnostics, and exports. It also saves a plan so you can repeat the run.</p>
+
+        <div class="pill" style="margin-top:12px;">Tips</div>
+        <ul>
+          <li>Enable audit logging for every run</li>
+          <li>Keep raw flattened data in the final export</li>
+          <li>Use consistent naming for repeatable scripts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <div class="pill">Helpful Extras</div>
+      <h2>Common add-ons that make analysis smoother</h2>
+      <div class="img-wrap">
+        <img src="assets/helpers-grid.svg" alt="Helpers diagram" style="width:100%; height:auto;"/>
+      </div>
+      <div class="two-col">
+        <h3>Logging and Fixes</h3>
+        <pre>
+StartAuditLog("audit_log.csv")
+WriteAuditLog("flatten", details = "Flattened submissions")
+StopAuditLog()
+        </pre>
+        <h3>Targeted adjustments</h3>
+        <pre>
+flat <- AdjustSubmissions(
+  flat,
+  id_col = "form_submissionid",
+  delete_ids = c("sub_001", "sub_017"),
+  updates = data.frame(
+    id = "sub_020",
+    column = "region",
+    value = "North",
+    stringsAsFactors = FALSE
+  ),
+  return_flat = TRUE
+)
+        </pre>
+        <h3>Cleaning Helpers</h3>
+        <pre>
+flat <- CompactSelections(flat)
+# Optional: change the separator used to detect checkbox groups
+# flat <- CompactSelections(flat, sep = "-")
+        </pre>
+        <h3>Rename columns</h3>
+        <pre>
+rename_map <- c("old_name" = "new_name")
+flat <- RenameCols(flat, rename_map = rename_map)
+        </pre>
+        <h3>Diagnostics</h3>
+        <pre>
+PlotHistogram(flat, "age")
+PlotBarSummary(flat, "program")
+PlotResponseTimeline(flat, "created")
+        </pre>
+      </div>
+    </div>
+
+    <div class="foot">
+      Full handbook: inst/extdata/handbook/index.md
+    </div>
+  </div>
+</body>
+</html>

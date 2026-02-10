@@ -1,0 +1,185 @@
+---
+title: "FormIOr Cheat Sheet"
+output:
+  pdf_document:
+    latex_engine: xelatex
+geometry: margin=0.6in
+fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Core Workflow (Most Common Path)
+
+**Goal:** Download -> Flatten -> Clean -> Diagnose -> Export
+
+```{r core-diagram, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/core-workflow.svg")
+```
+
+**CHEF credentials (quick visual):** API key and Form ID are in the form's **Manage** page.  
+Form ID is the alphanumeric code after `=` in the Manage page URL.
+
+```{r chef-creds, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/API.png")
+knitr::include_graphics("assets/FormID.png")
+```
+
+Default CHEF base URL used by FormIOr:
+
+```
+https://submit.digital.gov.bc.ca/app/api/v1
+```
+
+1. **Download responses**
+```r
+raw <- GetResponses(form_id = "YOUR_FORM_ID")
+```
+
+2. **Flatten nested responses**
+```r
+flat_raw <- FlattenSubmissions(raw)
+```
+
+3. **Normalize column names (recommended)**
+```r
+norm <- NormalizeColumnNames(flat_raw, return_flat = TRUE)
+flat <- norm$flat
+```
+
+4. **Deduplicate (optional)**
+```r
+dedup <- DeduplicateSubmissions(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- dedup$flat
+```
+
+5. **Resolve repeated answers (optional)**
+```r
+resolved <- ResolveRepeats(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- resolved$flat
+```
+
+6. **Create a codebook**
+```r
+codebook <- MakeCodebook(flat)
+# Optional: include labels from the form schema
+# form_meta <- GetFormMetadata(form_id = "your-form-id", api_key = "your-api-key")
+# codebook <- MakeCodebook(flat, form = form_meta, include = "all")
+```
+
+7. **Run quick diagnostics**
+```r
+summary_age <- SummaryByField(flat, field = "age")
+PlotHistogram(flat, "age")
+PlotBarSummary(flat, "program")
+```
+
+8. **Export to Excel**
+```r
+sheets <- list(
+  Raw_Flattened = flat_raw$FlatResponses,
+  Cleaned_Data = flat$FlatResponses,
+  Codebook = codebook,
+  Summary_Age = summary_age$summary
+)
+ExportToExcel(sheets, path = "FormIOr_output.xlsx", overwrite = TRUE)
+```
+
+# Helpful Extras (Common Add-Ons)
+
+```{r helpers-diagram, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/helpers-grid.svg")
+```
+
+**Audit logging (highly recommended)**
+```r
+StartAuditLog("audit_log.csv")
+WriteAuditLog("flatten", details = "Flattened submissions")
+StopAuditLog()
+```
+
+**Targeted adjustments**
+```r
+updates <- data.frame(
+  id = "sub_020",
+  column = "region",
+  value = "North",
+  stringsAsFactors = FALSE
+)
+
+flat <- AdjustSubmissions(
+  flat,
+  id_col = "form_submissionid",
+  delete_ids = c("sub_001", "sub_017"),
+  updates = updates,
+  return_flat = TRUE
+)
+```
+
+**Compact multi-select columns**
+```r
+flat <- CompactSelections(flat)
+# Optional: change the separator used to detect checkbox groups
+# flat <- CompactSelections(flat, sep = "-")
+```
+
+**Rename columns**
+```r
+rename_map <- c("old_name" = "new_name")
+flat <- RenameCols(flat, rename_map = rename_map)
+```
+
+**Cross-tab summaries**
+```r
+CrossTab(flat, row = "region", col = "program")
+```
+
+**Response timelines**
+```r
+ResponseTimeline(flat, date_col = "created")
+PlotResponseTimeline(flat, date_col = "created")
+```
+
+# Wizard (Automated Workflow)
+
+```r
+out <- FormIOrWorkflow()
+```
+
+This will:
+- create an output folder
+- start or reuse an audit log
+- download, flatten, clean, diagnose, and export
+- save a plan so you can replay the workflow later
+
+# Quick Reference: Key Functions
+
+**Download**
+- `GetResponses()`
+- `GetSubmissions()`
+- `GetFormMetadata()`
+
+**Flatten & Clean**
+- `FlattenSubmissions()`
+- `NormalizeColumnNames()`
+- `DeduplicateSubmissions()`
+- `ResolveRepeats()`
+- `CompactSelections()`
+- `AdjustSubmissions()`
+
+**Diagnostics**
+- `MakeCodebook()`
+- `SummaryByField()`
+- `CrossTab()`
+- `PlotHistogram()`
+- `PlotBarSummary()`
+- `PlotWordcloud()`
+- `PlotResponseTimeline()`
+
+**Export & Logging**
+- `ExportToExcel()`
+- `StartAuditLog()`
+- `WriteAuditLog()`
+- `StopAuditLog()`
