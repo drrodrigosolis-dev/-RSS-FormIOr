@@ -20,17 +20,20 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown
+          extra-packages: any::pkgdown any::markdown
           needs: website
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = TRUE)
         shell: Rscript {0}
 
+      - name: Build handbook
+        run: Rscript inst/extdata/handbook/render_handbook.R
+
       - name: Copy handbook to site
         run: |
           rm -rf docs/handbook
-          cp -R inst/extdata/handbook docs/handbook
+          cp -R handbook_site docs/handbook
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
