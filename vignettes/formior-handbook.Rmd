@@ -11,7 +11,7 @@ This vignette provides access to the full FormIOr handbook.
 
 ## Online handbook
 
-- <https://drrodrigosolis-dev.github.io/-RSS-FormIOr/handbook/index.html>
+- <https://drrodrigosolis-dev.github.io/RSS-FormIOr/handbook/index.html>
 
 ## Installed handbook
 

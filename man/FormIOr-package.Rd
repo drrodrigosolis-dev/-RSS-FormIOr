@@ -4,12 +4,20 @@
 \name{FormIOr-package}
 \alias{FormIOr}
 \alias{FormIOr-package}
-\title{FormIOr: Download, Clean, and Export FormIO Submissions}
+\title{FormIOr: Download, Clean, and Export 'FormIO' Submissions}
 \description{
-Tools for downloading FormIO submissions (responses), flattening nested structures, cleaning and simplifying repeated and multi-select answers, generating diagnostics (codebooks, summaries, plots), maintaining audit logs of dataset processing, and exporting results to Excel or delimited files. Includes an interactive end-to-end workflow for non-technical users.
+Tools for downloading 'FormIO' submissions via the 'FormIO API' \url{https://apidocs.form.io}, flattening nested structures, cleaning and simplifying repeated and multi-select answers, generating diagnostics (codebooks, summaries, plots), maintaining audit logs of dataset processing, and exporting results to 'Excel' or delimited files. Includes an interactive end-to-end workflow for non-technical users.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/drrodrigosolis-dev/RSS-FormIOr}
+  \item Report bugs at \url{https://github.com/drrodrigosolis-dev/RSS-FormIOr/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: Rodrigo Solis Sosa \email{dr.rodrigo.solis@gmail.com}
 
 }
 \keyword{internal}
