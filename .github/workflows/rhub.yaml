@@ -77,6 +77,11 @@ jobs:
 
     steps:
       - uses: r-hub/actions/checkout@v1
+      - name: Install macOS build tools
+        if: startsWith(matrix.config.os, 'macos')
+        run: |
+          brew update >/dev/null
+          brew install autoconf automake libtool
       - uses: r-hub/actions/setup-r@v1
         with:
           job-config: ${{ matrix.config.job-config }}
