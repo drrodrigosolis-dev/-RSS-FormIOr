@@ -8,13 +8,13 @@
 
   <rect class="box" x="20" y="45" width="170" height="120" fill="#CFE8F3" stroke="#1B4965" stroke-width="2"/>
   <text class="label" x="35" y="90">Download</text>
-  <text class="sub" x="35" y="115">GetResponses()</text>
+  <text class="sub" x="35" y="115">fetch_form_responses()</text>
 
   <polygon class="arrow" points="205,105 245,105 245,95 265,110 245,125 245,115 205,115"/>
 
   <rect class="box" x="275" y="45" width="170" height="120" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
   <text class="label" x="290" y="90">Flatten</text>
-  <text class="sub" x="290" y="115">FlattenSubmissions()</text>
+  <text class="sub" x="290" y="115">flatten_submission_records()</text>
 
   <polygon class="arrow" points="460,105 500,105 500,95 520,110 500,125 500,115 460,115"/>
 
@@ -32,5 +32,5 @@
 
   <rect class="box" x="785" y="170" width="170" height="40" fill="#FFE5D9" stroke="#9C3E2B" stroke-width="2"/>
   <text class="label" x="800" y="196">Export</text>
-  <text class="sub" x="870" y="196">ExportToExcel()</text>
+  <text class="sub" x="870" y="196">export_results_to_excel()</text>
 </svg>

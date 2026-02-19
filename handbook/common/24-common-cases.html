@@ -120,35 +120,35 @@ FormIO data and shows which FormIOr functions solve each case.</p>
 <h2 id="sec:case-1-editgrid-numeric-data-creates-multiple-rows-per-submission">Case 1: EditGrid numeric data creates multiple rows per submission</h2>
 <p><strong>Question:</strong> I have budget data entered through an EditGrid component. Each
 submission now has multiple rows, so my totals are split across rows. What do I do?</p>
-<p><strong>Answer:</strong> Use <code>ResolveRepeats()</code> to collapse repeated rows into one row per
+<p><strong>Answer:</strong> Use <code>collapse_repeated_values()</code> to collapse repeated rows into one row per
 submission. For numeric values, the default auto strategy is <strong>sum</strong>. You can
 override it with <code>strategy = &quot;mean&quot;</code> or <code>&quot;last&quot;</code> if needed.</p>
-<pre><code class="language-r">resolved &lt;- ResolveRepeats(flat, id_col = &quot;form_submissionid&quot;, strategy = &quot;sum&quot;, return_flat = TRUE)
+<pre><code class="language-r">resolved &lt;- collapse_repeated_values(flat, id_col = &quot;form_submissionid&quot;, strategy = &quot;sum&quot;, return_flat = TRUE)
 flat &lt;- resolved$flat
 </code></pre>
 <hr />
 <h2 id="sec:case-2-checkbox-columns-are-scattered-across-many-fields">Case 2: Checkbox columns are scattered across many fields</h2>
 <p><strong>Question:</strong> My multi‑select question shows up as many <code>field-option</code> columns.
 How do I combine them?</p>
-<p><strong>Answer:</strong> Use <code>CompactSelections()</code> to collapse checkbox groups into a single
+<p><strong>Answer:</strong> Use <code>collapse_checkbox_selections()</code> to collapse checkbox groups into a single
 “selected” column.</p>
-<pre><code class="language-r">compacted &lt;- CompactSelections(flat, return_flat = TRUE)
+<pre><code class="language-r">compacted &lt;- collapse_checkbox_selections(flat, return_flat = TRUE)
 flat &lt;- compacted$flat
 </code></pre>
 <hr />
 <h2 id="sec:case-3-duplicate-submissions-after-edits-or-resubmits">Case 3: Duplicate submissions after edits or resubmits</h2>
 <p><strong>Question:</strong> Some respondents edited their submissions, and I now see duplicates.
 How do I keep only the latest?</p>
-<p><strong>Answer:</strong> Use <code>DeduplicateSubmissions()</code> to keep the most recent row per
+<p><strong>Answer:</strong> Use <code>deduplicate_submission_rows()</code> to keep the most recent row per
 submission ID. If you have a timestamp column, the function will use it.</p>
-<pre><code class="language-r">dedup &lt;- DeduplicateSubmissions(flat, id_col = &quot;form_submissionid&quot;, keep = &quot;last&quot;, return_flat = TRUE)
+<pre><code class="language-r">dedup &lt;- deduplicate_submission_rows(flat, id_col = &quot;form_submissionid&quot;, keep = &quot;last&quot;, return_flat = TRUE)
 flat &lt;- dedup$flat
 </code></pre>
 <hr />
 <h2 id="sec:case-4-remove-test-submissions-or-delete-specific-ids">Case 4: Remove test submissions or delete specific IDs</h2>
 <p><strong>Question:</strong> I ran tests during form setup. How can I delete specific IDs?</p>
-<p><strong>Answer:</strong> Use <code>AdjustSubmissions()</code> with <code>delete_ids</code>.</p>
-<pre><code class="language-r">clean &lt;- AdjustSubmissions(
+<p><strong>Answer:</strong> Use <code>apply_submission_updates()</code> with <code>delete_ids</code>.</p>
+<pre><code class="language-r">clean &lt;- apply_submission_updates(
   flat,
   id_col = &quot;form_submissionid&quot;,
   delete_ids = c(&quot;sub_001&quot;, &quot;sub_017&quot;),
@@ -159,7 +159,7 @@ flat &lt;- clean$flat
 <hr />
 <h2 id="sec:case-5-correct-a-value-for-a-specific-submission">Case 5: Correct a value for a specific submission</h2>
 <p><strong>Question:</strong> One submission has an incorrect value. Can I fix just that row?</p>
-<p><strong>Answer:</strong> Yes. Use <code>AdjustSubmissions()</code> with an <code>updates</code> data.frame.</p>
+<p><strong>Answer:</strong> Yes. Use <code>apply_submission_updates()</code> with an <code>updates</code> data.frame.</p>
 <pre><code class="language-r">updates &lt;- data.frame(
   id = &quot;sub_020&quot;,
   column = &quot;region&quot;,
@@ -167,73 +167,103 @@ flat &lt;- clean$flat
   stringsAsFactors = FALSE
 )
 
-clean &lt;- AdjustSubmissions(flat, id_col = &quot;form_submissionid&quot;, updates = updates, return_flat = TRUE)
+clean &lt;- apply_submission_updates(flat, id_col = &quot;form_submissionid&quot;, updates = updates, return_flat = TRUE)
 flat &lt;- clean$flat
 </code></pre>
 <hr />
 <h2 id="sec:case-6-identify-which-columns-have-repeated-values">Case 6: Identify which columns have repeated values</h2>
 <p><strong>Question:</strong> I’m not sure which questions repeat within each submission.</p>
-<p><strong>Answer:</strong> Run <code>findMultilines()</code> to see which columns have more than one
+<p><strong>Answer:</strong> Run <code>count_multivalue_fields()</code> to see which columns have more than one
 value per submission.</p>
-<pre><code class="language-r">multi_counts &lt;- findMultilines(flat)
+<pre><code class="language-r">multi_counts &lt;- count_multivalue_fields(flat)
 </code></pre>
 <hr />
 <h2 id="sec:case-7-build-a-codebook-with-labels-and-sections">Case 7: Build a codebook with labels and sections</h2>
 <p><strong>Question:</strong> I need a codebook that includes question labels and sections.</p>
-<p><strong>Answer:</strong> Provide the form metadata or schema and use <code>MakeCodebook()</code>.</p>
-<pre><code class="language-r">form_meta &lt;- GetFormMetadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-codebook &lt;- MakeCodebook(flat, form = form_meta, include = &quot;all&quot;)
+<p><strong>Answer:</strong> Provide the form metadata or schema and use <code>build_data_codebook()</code>.</p>
+<pre><code class="language-r">form_meta &lt;- fetch_form_metadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+codebook &lt;- build_data_codebook(flat, form = form_meta, include = &quot;all&quot;)
 </code></pre>
 <hr />
 <h2 id="sec:case-8-compare-two-versions-of-the-form">Case 8: Compare two versions of the form</h2>
 <p><strong>Question:</strong> The form changed over time. How do I see what changed?</p>
-<p><strong>Answer:</strong> Use <code>CompareFormVersions()</code> with form metadata or schema.</p>
-<pre><code class="language-r">meta &lt;- GetFormMetadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-changes &lt;- CompareFormVersions(meta, meta, old_version = 1, new_version = &quot;latest&quot;)
+<p><strong>Answer:</strong> Use <code>compare_form_versions()</code> with form metadata or schema.</p>
+<pre><code class="language-r">meta &lt;- fetch_form_metadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+changes &lt;- compare_form_versions(meta, meta, old_version = 1, new_version = &quot;latest&quot;)
 </code></pre>
 <hr />
 <h2 id="sec:case-9-quick-counts-by-two-fields-cross-tabs">Case 9: Quick counts by two fields (cross‑tabs)</h2>
 <p><strong>Question:</strong> I want a quick table of <code>region</code> by <code>program</code>.</p>
-<p><strong>Answer:</strong> Use <code>CrossTab()</code>.</p>
-<pre><code class="language-r">xt &lt;- CrossTab(flat, row = &quot;region&quot;, col = &quot;program&quot;, percent = &quot;row&quot;)
+<p><strong>Answer:</strong> Use <code>tabulate_field_by_group()</code>.</p>
+<pre><code class="language-r">xt &lt;- tabulate_field_by_group(flat, row = &quot;region&quot;, col = &quot;program&quot;, percent = &quot;row&quot;)
 </code></pre>
 <hr />
 <h2 id="sec:case-10-trends-over-time">Case 10: Trends over time</h2>
 <p><strong>Question:</strong> I want to see submissions over time.</p>
-<p><strong>Answer:</strong> Use <code>ResponseTimeline()</code> for the data and <code>PlotResponseTimeline()</code>
+<p><strong>Answer:</strong> Use <code>summarize_response_timeline()</code> for the data and <code>plot_response_timeline()</code>
 for a quick plot.</p>
-<pre><code class="language-r">timeline &lt;- ResponseTimeline(flat, date_col = &quot;created&quot;)
-PlotResponseTimeline(flat, date_col = &quot;created&quot;)
+<pre><code class="language-r">timeline &lt;- summarize_response_timeline(flat, date_col = &quot;created&quot;)
+plot_response_timeline(flat, date_col = &quot;created&quot;)
 </code></pre>
 <hr />
 <h2 id="sec:case-11-summarize-one-question-quickly">Case 11: Summarize one question quickly</h2>
 <p><strong>Question:</strong> I need a quick summary of one field.</p>
-<p><strong>Answer:</strong> Use <code>SummaryByField()</code>.</p>
-<pre><code class="language-r">summary_age &lt;- SummaryByField(flat, field = &quot;age&quot;)
+<p><strong>Answer:</strong> Use <code>summarize_field_distribution()</code>.</p>
+<pre><code class="language-r">summary_age &lt;- summarize_field_distribution(flat, field = &quot;age&quot;)
 </code></pre>
 <hr />
 <h2 id="sec:case-12-export-even-if-excel-packages-are-not-installed">Case 12: Export even if Excel packages are not installed</h2>
 <p><strong>Question:</strong> I tried to export but don’t have Excel libraries.</p>
-<p><strong>Answer:</strong> <code>ExportToExcel()</code> will fall back to CSV if no Excel writer is
+<p><strong>Answer:</strong> <code>export_results_to_excel()</code> will fall back to CSV if no Excel writer is
 available. You can also force CSV by using a <code>.csv</code> path.</p>
-<pre><code class="language-r">ExportToExcel(flat$FlatResponses, path = &quot;FormIOr_output.csv&quot;, overwrite = TRUE)
+<pre><code class="language-r">export_results_to_excel(flat$FlatResponses, path = file.path(tempdir(), &quot;FormIOr_output.csv&quot;), overwrite = TRUE)
 </code></pre>
 <hr />
 <h2 id="sec:case-13-work-without-downloading">Case 13: Work without downloading</h2>
 <p><strong>Question:</strong> I already have a data frame. Can I use FormIOr anyway?</p>
-<p><strong>Answer:</strong> Yes. Pass your data directly to <code>FlattenSubmissions()</code> or the wizard.</p>
-<pre><code class="language-r">flat &lt;- FlattenSubmissions(my_data_frame)
+<p><strong>Answer:</strong> Yes. Pass your data directly to <code>flatten_submission_records()</code> or the wizard.</p>
+<pre><code class="language-r">flat &lt;- flatten_submission_records(my_data_frame)
 # or
-out &lt;- FormIOrWorkflow(data = my_data_frame)
+out &lt;- run_form_processing_workflow(data = my_data_frame)
 </code></pre>
 <hr />
 <h2 id="sec:case-14-keep-an-audit-trail-of-changes">Case 14: Keep an audit trail of changes</h2>
 <p><strong>Question:</strong> I need an audit log showing each transformation.</p>
 <p><strong>Answer:</strong> Start a log before you begin. Most functions will append entries
 automatically.</p>
-<pre><code class="language-r">StartAuditLog(&quot;audit_log.csv&quot;, append = TRUE)
+<pre><code class="language-r">start_audit_log(file.path(tempdir(), &quot;audit_log.csv&quot;), append = TRUE)
 # ...run cleaning steps...
-StopAuditLog()
+stop_audit_log()
+</code></pre>
+<hr />
+<h2 id="sec:case-15-anonymous-phase-vs-identity-verified-phase-may-not-be-comparable">Case 15: Anonymous phase vs identity-verified phase may not be comparable</h2>
+<p><strong>Question:</strong> We collected anonymous responses for a few days, then switched to
+identity verification. Can we analyze all responses together?</p>
+<p><strong>Answer:</strong> Use <code>detect_suspicious_submissions()</code> with a cutoff timestamp. If the
+pre/post groups differ materially, do not pool them. Analyze separately or omit
+one phase.</p>
+<p>Tip: try this workflow first with the bundled <code>SuspiciousSurveyDemo</code> dataset.</p>
+<pre><code class="language-r"># data(&quot;SuspiciousSurveyDemo&quot;, package = &quot;FormIOr&quot;)
+# df &lt;- SuspiciousSurveyDemo
+
+res &lt;- detect_suspicious_submissions(
+  df,
+  id_col = &quot;submissionId&quot;,
+  time_col = &quot;created&quot;,
+  cutoff_time = &quot;2026-01-06 00:00:00&quot;,
+  group_action = &quot;split_only&quot;
+)
+
+if (isTRUE(res$comparability$non_comparable)) {
+  # Usually preferred when post phase is identity-verified:
+  post_only &lt;- detect_suspicious_submissions(
+    df,
+    id_col = &quot;submissionId&quot;,
+    time_col = &quot;created&quot;,
+    cutoff_time = &quot;2026-01-06 00:00:00&quot;,
+    group_action = &quot;omit_pre&quot;
+  )$data
+}
 </code></pre>
 <hr />
 <p>Navigation</p>

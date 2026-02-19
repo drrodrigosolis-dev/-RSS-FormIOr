@@ -127,8 +127,8 @@ and they are recorded in the audit log if logging is enabled.</p>
 <li>Add a corrected value for a field that was missing in the original</li>
 </ul>
 <h2 id="sec:typical-flow">Typical flow</h2>
-<pre><code class="language-r">flat &lt;- FlattenSubmissions(raw)
-norm &lt;- NormalizeColumnNames(flat, return_flat = TRUE)
+<pre><code class="language-r">flat &lt;- flatten_submission_records(raw)
+norm &lt;- standardize_column_names(flat, return_flat = TRUE)
 flat &lt;- norm$flat
 
 updates &lt;- data.frame(
@@ -138,7 +138,7 @@ updates &lt;- data.frame(
   stringsAsFactors = FALSE
 )
 
-flat_adj &lt;- AdjustSubmissions(
+flat_adj &lt;- apply_submission_updates(
   flat,
   id_col = &quot;form_submissionid&quot;,
   delete_ids = c(&quot;sub_001&quot;, &quot;sub_017&quot;),

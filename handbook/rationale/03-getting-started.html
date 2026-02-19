@@ -117,26 +117,26 @@ section.footnotes {
 <p><a href="../index.html">Home</a> | <a href="02-core-concepts.html">Prev: Core Concepts</a> | <a href="04-security-credentials.html">Next: Security and Credentials</a></p>
 <p>The simplest way to start is to use the wizard:</p>
 <pre><code class="language-r">library(FormIOr)
-out &lt;- FormIOrWorkflow()
+out &lt;- run_form_processing_workflow()
 </code></pre>
 <p>If you want a manual workflow, use this minimal sequence:</p>
 <pre><code class="language-r">library(FormIOr)
 
-responses &lt;- GetResponses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-flat &lt;- FlattenSubmissions(responses)
+responses &lt;- fetch_form_responses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+flat &lt;- flatten_submission_records(responses)
 
-norm &lt;- NormalizeColumnNames(flat, return_flat = TRUE, quiet = TRUE)
+norm &lt;- standardize_column_names(flat, return_flat = TRUE, quiet = TRUE)
 flat &lt;- norm$flat
 
 id_col &lt;- &quot;form_submissionid&quot;  # confirm this name in your data
 
-resolved &lt;- ResolveRepeats(flat, id_col = id_col, return_flat = TRUE, quiet = TRUE)
+resolved &lt;- collapse_repeated_values(flat, id_col = id_col, return_flat = TRUE, quiet = TRUE)
 flat &lt;- resolved$flat
 
-ExportToExcel(flat$FlatResponses, path = &quot;FormIOr_output.xlsx&quot;, overwrite = TRUE)
+export_results_to_excel(flat$FlatResponses, path = file.path(tempdir(), &quot;FormIOr_output.xlsx&quot;), overwrite = TRUE)
 </code></pre>
 <p>If you prefer to skip downloads and work with a data frame you already have,
-pass it directly into <code>FlattenSubmissions()</code> or <code>FormIOrWorkflow(data = ...)</code>.</p>
+pass it directly into <code>flatten_submission_records()</code> or <code>run_form_processing_workflow(data = ...)</code>.</p>
 <pre><code>┌────────────────────────────────────────────────────────────────────┐
 │ CHEF credentials tip                                                │
 │ - API key and Form ID are in the form’s Manage page                 │

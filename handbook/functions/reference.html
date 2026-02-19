@@ -124,132 +124,140 @@ Click a function name to open its full handbook page.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="AddSections.html">AddSections</a></td>
-<td>This interactive function guides the user through categorizing columns of a flattened FormIO response dataset into hierarchical sections (up to 3 levels deep). It is designed to facilitate easier a…</td>
+<td><a href="append_audit_log_entry.html">append_audit_log_entry</a></td>
+<td>This writes a small CSV/TSV log of key actions (e.g., downloads, cleaning, exports). It is designed to be easy for non-technical users to open in Excel. If you are using automatic logging, you gene…</td>
 </tr>
 <tr>
-<td><a href="AdjustSubmissions.html">AdjustSubmissions</a></td>
+<td><a href="apply_submission_updates.html">apply_submission_updates</a></td>
 <td>Sometimes you need to make small, targeted fixes before you export: remove test submissions, correct a value for one submission, or blank out a field for privacy reasons.</td>
 </tr>
 <tr>
-<td><a href="AskCredentials.html">AskCredentials</a></td>
-<td>Prompts for the Form ID and API key used to access the FormIO API. This is usually called automatically by GetResponses() and related functions when credentials are not already stored.</td>
+<td><a href="ask_credentials.html">ask_credentials</a></td>
+<td>Collects the Form ID and API key and caches them for this R session.</td>
 </tr>
 <tr>
-<td><a href="CompactSelections.html">CompactSelections</a></td>
-<td>When a question generates multiple TRUE/FALSE columns (e.g., select boxes), this function combines them into a single comma-separated column. If audit logging is active (see StartAuditLog()), this …</td>
+<td><a href="assign_section_hierarchy.html">assign_section_hierarchy</a></td>
+<td>Assigns hierarchical section labels to columns in flattened FormIO response data (up to 3 levels deep). You can run it interactively with prompts, or non-interactively by supplying depth, section_n…</td>
 </tr>
 <tr>
-<td><a href="CompareFormVersions.html">CompareFormVersions</a></td>
-<td>Shows what changed between two form versions: fields added, removed, or updated. If audit logging is active (see StartAuditLog()), this action is recorded.</td>
+<td><a href="build_data_codebook.html">build_data_codebook</a></td>
+<td>This produces a plain-language table that documents each column in your data. It can optionally use a FormIO schema (via build_field_dictionary()) to add labels, sections, and descriptions. If audi…</td>
 </tr>
 <tr>
-<td><a href="CrossTab.html">CrossTab</a></td>
-<td>Builds a simple cross-tabulation between two columns, returning both a wide table and a long table that includes counts and (optional) percents. If audit logging is active (see StartAuditLog()), th…</td>
+<td><a href="build_field_dictionary.html">build_field_dictionary</a></td>
+<td>This creates a clean table that lists each field in your form. It is meant to be easy to read and share with non-technical staff. If audit logging is active (see start_audit_log()), this action is …</td>
 </tr>
 <tr>
-<td><a href="DeduplicateSubmissions.html">DeduplicateSubmissions</a></td>
-<td>Keeps one row per submission ID, using a timestamp column when available (for example created or modified), otherwise keeps first/last row. If audit logging is active (see StartAuditLog()), this ac…</td>
+<td><a href="collapse_checkbox_selections.html">collapse_checkbox_selections</a></td>
+<td>When a question generates multiple TRUE/FALSE columns (e.g., select boxes), this function combines them into a single comma-separated column. If audit logging is active (see start_audit_log()), thi…</td>
 </tr>
 <tr>
-<td><a href="DescribeForm.html">DescribeForm</a></td>
-<td>This is a simple overview of a form: the name, version, and how many fields it contains. It is meant for non-technical users who want a quick summary. If audit logging is active (see StartAuditLog(…</td>
+<td><a href="collapse_repeated_values.html">collapse_repeated_values</a></td>
+<td>Automatically collapses repeated values within each submission ID using a consistent strategy (or simple heuristics when strategy = “auto”). This is a non-interactive alternative to resolve_duplica…</td>
 </tr>
 <tr>
-<td><a href="ExportToExcel.html">ExportToExcel</a></td>
-<td>This is a simple, user-friendly export helper for FormIOr outputs. It accepts a data.frame, a list of data.frames (multiple sheets), or a list returned by GetResponses() / FlattenSubmissions(). If …</td>
+<td><a href="compare_form_versions.html">compare_form_versions</a></td>
+<td>Shows what changed between two form versions: fields added, removed, or updated. If audit logging is active (see start_audit_log()), this action is recorded.</td>
 </tr>
 <tr>
-<td><a href="FieldDictionary.html">FieldDictionary</a></td>
-<td>This creates a clean table that lists each field in your form. It is meant to be easy to read and share with non-technical staff. If audit logging is active (see StartAuditLog()), this action is re…</td>
-</tr>
-<tr>
-<td><a href="findMultilines.html">findMultilines</a></td>
+<td><a href="count_multivalue_fields.html">count_multivalue_fields</a></td>
 <td>Creates a diagnostic data frame with the same shape as the flattened responses, where each original value (except in the ID column) is replaced by the number of distinct non-NA values that appear i…</td>
 </tr>
 <tr>
-<td><a href="FixDups.html">FixDups</a></td>
+<td><a href="deduplicate_submission_rows.html">deduplicate_submission_rows</a></td>
+<td>Keeps one row per submission ID, using a timestamp column when available (for example created or modified), otherwise keeps first/last row. If audit logging is active (see start_audit_log()), this …</td>
+</tr>
+<tr>
+<td><a href="describe_form_schema.html">describe_form_schema</a></td>
+<td>This is a simple overview of a form: the name, version, and how many fields it contains. It is meant for non-technical users who want a quick summary. If audit logging is active (see start_audit_lo…</td>
+</tr>
+<tr>
+<td><a href="detect_suspicious_submissions.html">detect_suspicious_submissions</a></td>
+<td>Evaluates whether pre/post time groups are statistically comparable and produces row-level suspiciousness flags. This is designed for workflows where a survey changed mid-collection (for example, f…</td>
+</tr>
+<tr>
+<td><a href="export_results_to_excel.html">export_results_to_excel</a></td>
+<td>This is a simple, user-friendly export helper for FormIOr outputs. It accepts a data.frame, a list of data.frames (multiple sheets), or a list returned by fetch_form_responses() / flatten_submissio…</td>
+</tr>
+<tr>
+<td><a href="fetch_form_metadata.html">fetch_form_metadata</a></td>
+<td>Fetches form metadata from the API and retries the alternate base URL when parsing fails (CHEF compatibility behavior).</td>
+</tr>
+<tr>
+<td><a href="fetch_form_responses.html">fetch_form_responses</a></td>
+<td>Downloads response export JSON from a form endpoint and returns parsed submissions by default.</td>
+</tr>
+<tr>
+<td><a href="fetch_form_submissions.html">fetch_form_submissions</a></td>
+<td>Fetches submission-level metadata (not full response payloads) from a ‘FormIO’ endpoint.</td>
+</tr>
+<tr>
+<td><a href="flatten_submission_records.html">flatten_submission_records</a></td>
+<td>This function will flatten submissions coming from a FormIO list that has nested elements</td>
+</tr>
+<tr>
+<td><a href="is_audit_log_active.html">is_audit_log_active</a></td>
+<td>This is most useful in scripts when you want to conditionally add a manual note using append_audit_log_entry() only when logging is enabled.</td>
+</tr>
+<tr>
+<td><a href="launch_formior_addin.html">launch_formior_addin</a></td>
+<td>Provides a minimal point-and-click interface for key FormIOr functions.</td>
+</tr>
+<tr>
+<td><a href="plot_categorical_summary.html">plot_categorical_summary</a></td>
+<td>If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_numeric_distribution.html">plot_numeric_distribution</a></td>
+<td>If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_response_timeline.html">plot_response_timeline</a></td>
+<td>Convenience wrapper around summarize_response_timeline() that draws a simple line chart using base graphics. If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_word_cloud.html">plot_word_cloud</a></td>
+<td>Requires the optional wordcloud package. If it is not installed, the function will stop with a helpful message. If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="rename_columns_from_dictionary.html">rename_columns_from_dictionary</a></td>
+<td>Renames columns in a list returned by flatten_submission_records(). You can run it interactively (prompt for each column) or non-interactively with rename_map.</td>
+</tr>
+<tr>
+<td><a href="resolve_duplicate_values.html">resolve_duplicate_values</a></td>
 <td>Interactive function designed for users with little or no R experience. It helps resolve columns that contain multiple values per submission (e.g. repeating sections, “add another” items, multi-sel…</td>
 </tr>
 <tr>
-<td><a href="FlattenSubmissions.html">FlattenSubmissions</a></td>
-<td>FormIO submissions often contain nested lists (for repeating sections, address blocks, uploads, etc.). FlattenSubmissions() expands those nested structures into a regular 2D data frame so you can e…</td>
-</tr>
-<tr>
-<td><a href="FormIOrWorkflow.html">FormIOrWorkflow</a></td>
-<td>This interactive helper walks you through a complete FormIOr workflow: downloading responses, flattening and cleaning the data, generating simple diagnostics (like a codebook and basic plots), and …</td>
-</tr>
-<tr>
-<td><a href="GetFormMetadata.html">GetFormMetadata</a></td>
-<td>Downloads basic metadata for a FormIO form. This can be useful for:</td>
-</tr>
-<tr>
-<td><a href="GetResponses.html">GetResponses</a></td>
-<td>Retrieves submissions (“responses”) for a FormIO form using the export API. This is one of the main entry points for getting data into FormIOr.</td>
-</tr>
-<tr>
-<td><a href="GetSubmissions.html">GetSubmissions</a></td>
-<td>Fetches a list of submission metadata (not the full submission data) from a Digital.gov.bc.ca form, including drafts, completed, and deleted submissions. If audit logging is active (see StartAuditL…</td>
-</tr>
-<tr>
-<td><a href="IsAuditLogActive.html">IsAuditLogActive</a></td>
-<td>This is most useful in scripts when you want to conditionally add a manual note using WriteAuditLog() only when logging is enabled.</td>
-</tr>
-<tr>
-<td><a href="MakeCodebook.html">MakeCodebook</a></td>
-<td>This produces a plain-language table that documents each column in your data. It can optionally use a FormIO schema (via FieldDictionary()) to add labels, sections, and descriptions. If audit loggi…</td>
-</tr>
-<tr>
-<td><a href="NormalizeColumnNames.html">NormalizeColumnNames</a></td>
-<td>Designed for non-technical users who want consistent column names after downloading FormIO submissions. Works with either a raw data frame or the list returned by FlattenSubmissions(). If audit log…</td>
-</tr>
-<tr>
-<td><a href="PlotBarSummary.html">PlotBarSummary</a></td>
-<td>If audit logging is active (see StartAuditLog()), this action is recorded.</td>
-</tr>
-<tr>
-<td><a href="PlotHistogram.html">PlotHistogram</a></td>
-<td>If audit logging is active (see StartAuditLog()), this action is recorded.</td>
-</tr>
-<tr>
-<td><a href="PlotResponseTimeline.html">PlotResponseTimeline</a></td>
-<td>Convenience wrapper around ResponseTimeline() that draws a simple line chart using base graphics. If audit logging is active (see StartAuditLog()), this action is recorded.</td>
-</tr>
-<tr>
-<td><a href="PlotWordcloud.html">PlotWordcloud</a></td>
-<td>Requires the optional wordcloud package. If it is not installed, the function will stop with a helpful message. If audit logging is active (see StartAuditLog()), this action is recorded.</td>
-</tr>
-<tr>
-<td><a href="RenameCols.html">RenameCols</a></td>
-<td>Guides you through renaming each column in a flattened FormIO dataset. This is helpful for non-technical users who want friendly column names before analysis or export.</td>
-</tr>
-<tr>
-<td><a href="ResolveRepeats.html">ResolveRepeats</a></td>
-<td>Automatically collapses repeated values within each submission ID using a consistent strategy (or simple heuristics when strategy = “auto”). This is a non-interactive alternative to FixDups().</td>
-</tr>
-<tr>
-<td><a href="ResponseTimeline.html">ResponseTimeline</a></td>
-<td>Counts responses per day/week/month (or hour), using a timestamp column. If date_col is NULL, the function tries common timestamp names automatically (e.g., created, modified, _createdAt). If audit…</td>
-</tr>
-<tr>
-<td><a href="ReviewDuplicateSubmissions.html">ReviewDuplicateSubmissions</a></td>
+<td><a href="review_duplicate_rows.html">review_duplicate_rows</a></td>
 <td>This function walks you through duplicate groups defined by key columns (for example email, username, project_id). For each duplicate group, it shows selected columns so you can compare submissions…</td>
 </tr>
 <tr>
-<td><a href="StartAuditLog.html">StartAuditLog</a></td>
+<td><a href="run_form_processing_workflow.html">run_form_processing_workflow</a></td>
+<td>This interactive helper walks you through a complete FormIOr workflow: downloading responses, flattening and cleaning the data, generating simple diagnostics (like a codebook and basic plots), and …</td>
+</tr>
+<tr>
+<td><a href="standardize_column_names.html">standardize_column_names</a></td>
+<td>Designed for non-technical users who want consistent column names after downloading FormIO submissions. Works with either a raw data frame or the list returned by flatten_submission_records(). If a…</td>
+</tr>
+<tr>
+<td><a href="start_audit_log.html">start_audit_log</a></td>
 <td>Creates a new audit log file and turns on automatic logging for FormIOr functions. Each subsequent action (downloads, cleaning, exports, etc.) will append a new row to the log.</td>
 </tr>
 <tr>
-<td><a href="StopAuditLog.html">StopAuditLog</a></td>
-<td>Turns off automatic logging. The log file is not deleted. You can start a new log later using StartAuditLog().</td>
+<td><a href="stop_audit_log.html">stop_audit_log</a></td>
+<td>Turns off automatic logging. The log file is not deleted. You can start a new log later using start_audit_log().</td>
 </tr>
 <tr>
-<td><a href="SummaryByField.html">SummaryByField</a></td>
-<td>Designed for non-technical users: it accepts either a data frame or the list produced by FlattenSubmissions() and returns a simple summary. Numeric fields get descriptive statistics; categorical fi…</td>
+<td><a href="summarize_field_distribution.html">summarize_field_distribution</a></td>
+<td>Designed for non-technical users: it accepts either a data frame or the list produced by flatten_submission_records() and returns a simple summary. Numeric fields get descriptive statistics; catego…</td>
 </tr>
 <tr>
-<td><a href="WriteAuditLog.html">WriteAuditLog</a></td>
-<td>This writes a small CSV/TSV log of key actions (e.g., downloads, cleaning, exports). It is designed to be easy for non-technical users to open in Excel. If you are using automatic logging, you gene…</td>
+<td><a href="summarize_response_timeline.html">summarize_response_timeline</a></td>
+<td>Counts responses per day/week/month (or hour), using a timestamp column. If date_col is NULL, the function tries common timestamp names automatically (e.g., created, modified, _createdAt). If audit…</td>
+</tr>
+<tr>
+<td><a href="tabulate_field_by_group.html">tabulate_field_by_group</a></td>
+<td>Builds a simple cross-tabulation between two columns, returning both a wide table and a long table that includes counts and (optional) percents. If audit logging is active (see start_audit_log()), …</td>
 </tr>
 </tbody>
 </table>

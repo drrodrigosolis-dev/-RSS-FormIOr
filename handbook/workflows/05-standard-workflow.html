@@ -127,20 +127,20 @@ It is structured to be repeatable and easy to audit.</p>
 <li>Export to Excel and optionally create a codebook</li>
 </ol>
 <h3 id="sec:example">Example</h3>
-<pre><code class="language-r">responses &lt;- GetResponses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-flat &lt;- FlattenSubmissions(responses)
+<pre><code class="language-r">responses &lt;- fetch_form_responses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+flat &lt;- flatten_submission_records(responses)
 
-norm &lt;- NormalizeColumnNames(flat, return_flat = TRUE, quiet = TRUE)
+norm &lt;- standardize_column_names(flat, return_flat = TRUE, quiet = TRUE)
 flat &lt;- norm$flat
 
 id_col &lt;- &quot;form_submissionid&quot;
 
-resolved &lt;- ResolveRepeats(flat, id_col = id_col, return_flat = TRUE, quiet = TRUE)
+resolved &lt;- collapse_repeated_values(flat, id_col = id_col, return_flat = TRUE, quiet = TRUE)
 flat &lt;- resolved$flat
 
-codebook &lt;- MakeCodebook(flat, quiet = TRUE)
+codebook &lt;- build_data_codebook(flat, quiet = TRUE)
 sheets &lt;- list(Responses = flat$FlatResponses, Codebook = codebook)
-ExportToExcel(sheets, path = &quot;FormIOr_output.xlsx&quot;, overwrite = TRUE)
+export_results_to_excel(sheets, path = file.path(tempdir(), &quot;FormIOr_output.xlsx&quot;), overwrite = TRUE)
 </code></pre>
 <h3 id="sec:when-to-use-this">When to use this</h3>
 <ul>

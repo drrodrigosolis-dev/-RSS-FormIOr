@@ -118,20 +118,20 @@ section.footnotes {
 you can still make your workflow repeatable by saving your steps in a script
 or by recording the same sequence of function calls each time.</p>
 <h2 id="sec:a-simple-repeatable-template">A simple repeatable template</h2>
-<pre><code class="language-r">raw &lt;- GetResponses(form_id = &quot;...&quot;)
-flat &lt;- FlattenSubmissions(raw)
-norm &lt;- NormalizeColumnNames(flat, return_flat = TRUE)
+<pre><code class="language-r">raw &lt;- fetch_form_responses(form_id = &quot;...&quot;)
+flat &lt;- flatten_submission_records(raw)
+norm &lt;- standardize_column_names(flat, return_flat = TRUE)
 flat &lt;- norm$flat
-dedup &lt;- DeduplicateSubmissions(flat, return_flat = TRUE)
+dedup &lt;- deduplicate_submission_rows(flat, return_flat = TRUE)
 flat &lt;- dedup$flat
-resolved &lt;- ResolveRepeats(flat, return_flat = TRUE)
+resolved &lt;- collapse_repeated_values(flat, return_flat = TRUE)
 flat &lt;- resolved$flat
-codebook &lt;- MakeCodebook(flat)
+codebook &lt;- build_data_codebook(flat)
 # Optional: include labels from the form schema
-# form_meta &lt;- GetFormMetadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-# codebook &lt;- MakeCodebook(flat, form = form_meta, include = &quot;all&quot;)
+# form_meta &lt;- fetch_form_metadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+# codebook &lt;- build_data_codebook(flat, form = form_meta, include = &quot;all&quot;)
 sheets &lt;- list(Data = flat$FlatResponses, Codebook = codebook)
-ExportToExcel(sheets, &quot;output.xlsx&quot;, overwrite = TRUE)
+export_results_to_excel(sheets, &quot;output.xlsx&quot;, overwrite = TRUE)
 </code></pre>
 <h2 id="sec:good-repeatability-habits">Good repeatability habits</h2>
 <ul>

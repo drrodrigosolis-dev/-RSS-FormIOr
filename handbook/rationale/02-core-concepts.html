@@ -117,7 +117,7 @@ section.footnotes {
 <p>FormIOr works with two main data shapes:</p>
 <ol>
 <li>A plain data frame (a regular R table)</li>
-<li>A “flat” object returned by <code>FlattenSubmissions()</code></li>
+<li>A “flat” object returned by <code>flatten_submission_records()</code></li>
 </ol>
 <p>The flat object is a list that contains:</p>
 <ul>
@@ -134,9 +134,9 @@ that the data can be analyzed or exported without special tooling.</p>
 how repeated answers are represented. FormIOr provides multiple ways to reduce
 those repeated answers down to one row per submission:</p>
 <ul>
-<li><code>ResolveRepeats()</code> for automatic collapsing</li>
-<li><code>FixDups()</code> for interactive, column-by-column decisions</li>
-<li><code>DeduplicateSubmissions()</code> when duplicates are true duplicates</li>
+<li><code>collapse_repeated_values()</code> for automatic collapsing</li>
+<li><code>resolve_duplicate_values()</code> for interactive, column-by-column decisions</li>
+<li><code>deduplicate_submission_rows()</code> when duplicates are true duplicates</li>
 </ul>
 <h3 id="sec:the-submission-id-column">The submission ID column</h3>
 <p>Many cleaning steps require a submission ID column (<code>id_col</code>). This is used to

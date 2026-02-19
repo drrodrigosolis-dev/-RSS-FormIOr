@@ -7,33 +7,33 @@
 
   <rect class="card" x="20" y="20" width="300" height="140" fill="#E6F4EA" stroke="#2D6A4F" stroke-width="2"/>
   <text class="label" x="35" y="55">Audit Logging</text>
-  <text class="sub" x="35" y="80">StartAuditLog()</text>
-  <text class="sub" x="35" y="100">WriteAuditLog()</text>
-  <text class="sub" x="35" y="120">StopAuditLog()</text>
+  <text class="sub" x="35" y="80">start_audit_log()</text>
+  <text class="sub" x="35" y="100">append_audit_log_entry()</text>
+  <text class="sub" x="35" y="120">stop_audit_log()</text>
 
   <rect class="card" x="350" y="20" width="300" height="140" fill="#E8EAF6" stroke="#3F51B5" stroke-width="2"/>
   <text class="label" x="365" y="55">Targeted Fixes</text>
-  <text class="sub" x="365" y="80">AdjustSubmissions()</text>
+  <text class="sub" x="365" y="80">apply_submission_updates()</text>
   <text class="sub" x="365" y="100">Remove IDs / Set Values</text>
 
   <rect class="card" x="680" y="20" width="300" height="140" fill="#FFF4E6" stroke="#B25C00" stroke-width="2"/>
   <text class="label" x="695" y="55">Compact Selections</text>
-  <text class="sub" x="695" y="80">CompactSelections()</text>
+  <text class="sub" x="695" y="80">collapse_checkbox_selections()</text>
   <text class="sub" x="695" y="100">Multi-select cleanup</text>
 
   <rect class="card" x="20" y="190" width="300" height="140" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
   <text class="label" x="35" y="225">Renaming</text>
-  <text class="sub" x="35" y="250">RenameCols()</text>
-  <text class="sub" x="35" y="270">NormalizeColumnNames()</text>
+  <text class="sub" x="35" y="250">rename_columns_from_dictionary()</text>
+  <text class="sub" x="35" y="270">standardize_column_names()</text>
 
   <rect class="card" x="350" y="190" width="300" height="140" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"/>
   <text class="label" x="365" y="225">Summaries</text>
-  <text class="sub" x="365" y="250">SummaryByField()</text>
-  <text class="sub" x="365" y="270">CrossTab()</text>
+  <text class="sub" x="365" y="250">summarize_field_distribution()</text>
+  <text class="sub" x="365" y="270">tabulate_field_by_group()</text>
 
   <rect class="card" x="680" y="190" width="300" height="140" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/>
   <text class="label" x="695" y="225">Plots</text>
-  <text class="sub" x="695" y="250">PlotHistogram()</text>
-  <text class="sub" x="695" y="270">PlotBarSummary()</text>
-  <text class="sub" x="695" y="290">PlotResponseTimeline()</text>
+  <text class="sub" x="695" y="250">plot_numeric_distribution()</text>
+  <text class="sub" x="695" y="270">plot_categorical_summary()</text>
+  <text class="sub" x="695" y="290">plot_response_timeline()</text>
 </svg>

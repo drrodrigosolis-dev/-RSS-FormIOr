@@ -133,28 +133,28 @@ cleaning is needed before analysis or reporting:</p>
 </ol>
 <h2 id="sec:recommended-manual-flow">Recommended manual flow</h2>
 <p>First, make sure you have a <code>raw</code> object. This is the unflattened data returned
-by <code>GetResponses()</code> (or any data.frame of submissions you already have):</p>
+by <code>fetch_form_responses()</code> (or any data.frame of submissions you already have):</p>
 <pre><code class="language-r"># Option A: download from FormIO
-raw &lt;- GetResponses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+raw &lt;- fetch_form_responses(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
 
 # Option B: use an existing data.frame of submissions
 # raw &lt;- your_data_frame
 </code></pre>
-<pre><code class="language-r">flat &lt;- FlattenSubmissions(raw)
-norm &lt;- NormalizeColumnNames(flat, return_flat = TRUE)
+<pre><code class="language-r">flat &lt;- flatten_submission_records(raw)
+norm &lt;- standardize_column_names(flat, return_flat = TRUE)
 flat &lt;- norm$flat
-codebook &lt;- MakeCodebook(flat)
+codebook &lt;- build_data_codebook(flat)
 # Optional: include labels from the form schema
-# form_meta &lt;- GetFormMetadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
-# codebook &lt;- MakeCodebook(norm, form = form_meta, include = &quot;all&quot;)
+# form_meta &lt;- fetch_form_metadata(form_id = &quot;your-form-id&quot;, api_key = &quot;your-api-key&quot;)
+# codebook &lt;- build_data_codebook(norm, form = form_meta, include = &quot;all&quot;)
 
 # Summary examples (one field at a time)
-summary_age &lt;- SummaryByField(flat, field = &quot;age&quot;)
-summary_program &lt;- SummaryByField(flat, field = &quot;program&quot;)
-summary_region &lt;- SummaryByField(flat, field = &quot;region&quot;)
+summary_age &lt;- summarize_field_distribution(flat, field = &quot;age&quot;)
+summary_program &lt;- summarize_field_distribution(flat, field = &quot;program&quot;)
+summary_region &lt;- summarize_field_distribution(flat, field = &quot;region&quot;)
 
-PlotHistogram(flat, &quot;age&quot;)
-PlotBarSummary(flat, &quot;program&quot;)
+plot_numeric_distribution(flat, &quot;age&quot;)
+plot_categorical_summary(flat, &quot;program&quot;)
 </code></pre>
 <h2 id="sec:what-to-look-for">What to look for</h2>
 <ul>

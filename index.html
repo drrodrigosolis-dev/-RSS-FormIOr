@@ -81,7 +81,8 @@
 <p>Maintained by <strong>Rodrigo Solis-Sosa, PhD</strong> (Human Dimensions of Wildlife Specialist, BC Ministry of Water, Land and Resource Stewardship).</p>
 <p>FormIOr is designed for the Common Hosted Forms Service (CHEF) FormIO used by the BC Public Service. It may work with other FormIO services, but that is not guaranteed.</p>
 <p><strong>Default CHEF base URL:</strong> <code>https://submit.digital.gov.bc.ca/app/api/v1</code><br>
-If you use a different FormIO service, you must override <code>base_url</code> in <code><a href="reference/GetResponses.html">GetResponses()</a></code> / <code><a href="reference/GetSubmissions.html">GetSubmissions()</a></code>.</p>
+If you use a different FormIO service, you must override <code>base_url</code> in <code><a href="reference/fetch_form_responses.html">fetch_form_responses()</a></code> / <code><a href="reference/fetch_form_submissions.html">fetch_form_submissions()</a></code>.</p>
+<p>Note (CHEF): Response export endpoints use <code>/app/api/v1</code>, while some metadata/schema endpoints live at <code>/api/v1</code>. FormIOr automatically retries the alternate base for metadata/schema requests when needed.</p>
 <div class="section level2">
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
@@ -95,28 +96,32 @@ If you use a different FormIO service, you must override <code>base_url</code> i
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/drrodrigosolis-dev/RSS-FormIOr" class="external-link">FormIOr</a></span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Optional: cache credentials once per R session (skips prompts)</span></span>
+<span><span class="fu"><a href="reference/ask_credentials.html">ask_credentials</a></span><span class="op">(</span>form_id <span class="op">=</span> <span class="st">"your-form-id"</span>, api <span class="op">=</span> <span class="st">"your-api-key"</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># 1) Download responses</span></span>
-<span><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/GetResponses.html">GetResponses</a></span><span class="op">(</span>form_id <span class="op">=</span> <span class="st">"your-form-id"</span>, api_key <span class="op">=</span> <span class="st">"your-api-key"</span><span class="op">)</span></span>
+<span><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fetch_form_responses.html">fetch_form_responses</a></span><span class="op">(</span>form_id <span class="op">=</span> <span class="st">"your-form-id"</span>, api_key <span class="op">=</span> <span class="st">"your-api-key"</span><span class="op">)</span></span>
+<span><span class="co"># or: responses &lt;- fetch_form_responses()  # if already cached with ask_credentials()</span></span>
 <span></span>
 <span><span class="co"># 2) Flatten nested submissions</span></span>
-<span><span class="va">flat</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/FlattenSubmissions.html">FlattenSubmissions</a></span><span class="op">(</span><span class="va">responses</span><span class="op">)</span></span>
+<span><span class="va">flat</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/flatten_submission_records.html">flatten_submission_records</a></span><span class="op">(</span><span class="va">responses</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 3) Optional: rename columns interactively</span></span>
-<span><span class="fu"><a href="reference/RenameCols.html">RenameCols</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/rename_columns_from_dictionary.html">rename_columns_from_dictionary</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 4) Simplify and clean</span></span>
-<span><span class="va">norm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/NormalizeColumnNames.html">NormalizeColumnNames</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                <span class="co"># clean column names</span></span>
-<span><span class="va">resolved</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ResolveRepeats.html">ResolveRepeats</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                  <span class="co"># collapse repeated answers</span></span>
-<span><span class="va">compact</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CompactSelections.html">CompactSelections</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                <span class="co"># combine checkbox columns</span></span>
+<span><span class="va">norm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/standardize_column_names.html">standardize_column_names</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                <span class="co"># clean column names</span></span>
+<span><span class="va">resolved</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/collapse_repeated_values.html">collapse_repeated_values</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                  <span class="co"># collapse repeated answers</span></span>
+<span><span class="va">compact</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/collapse_checkbox_selections.html">collapse_checkbox_selections</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>                <span class="co"># combine checkbox columns</span></span>
 <span></span>
-<span><span class="va">dedup</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/DeduplicateSubmissions.html">DeduplicateSubmissions</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>             <span class="co"># remove duplicate submissions</span></span></code></pre></div>
+<span><span class="va">dedup</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deduplicate_submission_rows.html">deduplicate_submission_rows</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span>             <span class="co"># remove duplicate submissions</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start-guided-wizard">Quick Start: Guided Wizard<a class="anchor" aria-label="anchor" href="#quick-start-guided-wizard"></a>
 </h2>
 <p>For most users, the easiest entry point is the guided workflow:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/FormIOrWorkflow.html">FormIOrWorkflow</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_form_processing_workflow.html">run_form_processing_workflow</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The wizard can:</p>
 <ul>
 <li>Download responses (or start from an existing data frame)</li>
@@ -128,11 +133,19 @@ If you use a different FormIO service, you must override <code>base_url</code> i
 <p>It also saves your wizard choices to <code>workflow_plan.rds/json</code> so you can repeat the same steps later.</p>
 </div>
 <div class="section level2">
+<h2 id="rstudio-addin-point-and-click">RStudio Addin (Point-and-Click)<a class="anchor" aria-label="anchor" href="#rstudio-addin-point-and-click"></a>
+</h2>
+<p>Launch the addin from <strong>RStudio &gt; Addins &gt; FormIOr Addin</strong> or run:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/launch_formior_addin.html">launch_formior_addin</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>The addin provides tabs for downloading and flattening data, cleaning helpers, exporting to Excel/CSV, summaries by field, and a build_field_dictionary explorer. If the optional `reactable` package is installed, preview tables have resizable columns.</p>
+</div>
+<div class="section level2">
 <h2 id="vignette">Vignette<a class="anchor" aria-label="anchor" href="#vignette"></a>
 </h2>
 <p>See <code>inst/extdata/handbook/index.md</code> in this repo for a detailed end-to-end guide.</p>
 <p>If you have the package installed, you can locate the same guide with:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"handbook/index.md"</span>, package <span class="op">=</span> <span class="st">"FormIOr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -150,36 +163,58 @@ Your <strong>Form ID</strong> is the final alphanumeric code after the <code>=</
 <div class="section level2">
 <h2 id="cleaning--simplification-helpers">Cleaning &amp; Simplification Helpers<a class="anchor" aria-label="anchor" href="#cleaning--simplification-helpers"></a>
 </h2>
-<p>All functions below accept either a plain data frame or the output of <code><a href="reference/FlattenSubmissions.html">FlattenSubmissions()</a></code>.</p>
+<p>All functions below accept either a plain data frame or the output of <code><a href="reference/flatten_submission_records.html">flatten_submission_records()</a></code>.</p>
 <div class="section level3">
-<h3 id="normalizecolumnnames">NormalizeColumnNames()<a class="anchor" aria-label="anchor" href="#normalizecolumnnames"></a>
+<h3 id="standardize_column_names">standardize_column_names()<a class="anchor" aria-label="anchor" href="#standardize_column_names"></a>
 </h3>
 <p>Standardizes column names for readability and consistency.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">norm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/NormalizeColumnNames.html">NormalizeColumnNames</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">norm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/standardize_column_names.html">standardize_column_names</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">norm</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="resolverepeats">ResolveRepeats()<a class="anchor" aria-label="anchor" href="#resolverepeats"></a>
+<h3 id="collapse_repeated_values">collapse_repeated_values()<a class="anchor" aria-label="anchor" href="#collapse_repeated_values"></a>
 </h3>
 <p>Collapses repeated values within each submission ID using either a fixed strategy or simple auto-detection.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">resolved</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ResolveRepeats.html">ResolveRepeats</a></span><span class="op">(</span><span class="va">flat</span>, id_col <span class="op">=</span> <span class="st">"submissionId"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">resolved</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/collapse_repeated_values.html">collapse_repeated_values</a></span><span class="op">(</span><span class="va">flat</span>, id_col <span class="op">=</span> <span class="st">"submissionId"</span><span class="op">)</span></span>
 <span><span class="va">resolved</span><span class="op">$</span><span class="va">summary</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="deduplicatesubmissions">DeduplicateSubmissions()<a class="anchor" aria-label="anchor" href="#deduplicatesubmissions"></a>
+<h3 id="deduplicate_submission_rows">deduplicate_submission_rows()<a class="anchor" aria-label="anchor" href="#deduplicate_submission_rows"></a>
 </h3>
 <p>Keeps one row per submission ID (uses a timestamp column when available).</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dedup</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/DeduplicateSubmissions.html">DeduplicateSubmissions</a></span><span class="op">(</span><span class="va">flat</span>, id_col <span class="op">=</span> <span class="st">"submissionId"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dedup</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deduplicate_submission_rows.html">deduplicate_submission_rows</a></span><span class="op">(</span><span class="va">flat</span>, id_col <span class="op">=</span> <span class="st">"submissionId"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="compactselections">CompactSelections()<a class="anchor" aria-label="anchor" href="#compactselections"></a>
+<h3 id="detect_suspicious_submissions">detect_suspicious_submissions()<a class="anchor" aria-label="anchor" href="#detect_suspicious_submissions"></a>
+</h3>
+<p>Checks whether pre/post phases can be pooled and flags suspicious rows (duplicate IDs/fingerprints, rapid repeats).</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"SuspiciousSurveyDemo"</span>, package <span class="op">=</span> <span class="st">"FormIOr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">risk</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/detect_suspicious_submissions.html">detect_suspicious_submissions</a></span><span class="op">(</span></span>
+<span>  <span class="va">SuspiciousSurveyDemo</span>,</span>
+<span>  id_col <span class="op">=</span> <span class="st">"submissionId"</span>,</span>
+<span>  time_col <span class="op">=</span> <span class="st">"created"</span>,</span>
+<span>  cutoff_time <span class="op">=</span> <span class="st">"2026-01-06 00:00:00"</span>,</span>
+<span>  group_action <span class="op">=</span> <span class="st">"split_only"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">risk</span><span class="op">$</span><span class="va">comparability</span><span class="op">$</span><span class="va">non_comparable</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="built-in-demo-dataset">Built-in Demo Dataset<a class="anchor" aria-label="anchor" href="#built-in-demo-dataset"></a>
+</h2>
+<p>FormIOr includes <code>SuspiciousSurveyDemo</code>, a synthetic dataset built to test time-group comparability and suspicious-response detection.</p>
+<div class="section level3">
+<h3 id="collapse_checkbox_selections">collapse_checkbox_selections()<a class="anchor" aria-label="anchor" href="#collapse_checkbox_selections"></a>
 </h3>
 <p>Combines checkbox/multi-select columns into a single comma-separated column.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">compact</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CompactSelections.html">CompactSelections</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">compact</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/collapse_checkbox_selections.html">collapse_checkbox_selections</a></span><span class="op">(</span><span class="va">flat</span><span class="op">)</span></span>
 <span><span class="va">compact</span><span class="op">$</span><span class="va">summary</span></span></code></pre></div>
 </div>
 </div>
@@ -187,9 +222,9 @@ Your <strong>Form ID</strong> is the final alphanumeric code after the <code>=</
 <h2 id="notes">Notes<a class="anchor" aria-label="anchor" href="#notes"></a>
 </h2>
 <ul>
-<li>If you want the updated <code><a href="reference/FlattenSubmissions.html">FlattenSubmissions()</a></code> list in the output, pass <code>return_flat = TRUE</code> to any of the new cleaning functions.</li>
-<li>Use <code><a href="reference/FixDups.html">FixDups()</a></code> for a guided, interactive cleanup of multi-value fields.</li>
-<li>To keep an audit trail of downloads/cleaning/exports, enable logging in the wizard or call <code><a href="reference/StartAuditLog.html">StartAuditLog()</a></code> before running FormIOr functions.</li>
+<li>If you want the updated <code><a href="reference/flatten_submission_records.html">flatten_submission_records()</a></code> list in the output, pass <code>return_flat = TRUE</code> to any of the new cleaning functions.</li>
+<li>Use <code><a href="reference/resolve_duplicate_values.html">resolve_duplicate_values()</a></code> for a guided, interactive cleanup of multi-value fields.</li>
+<li>To keep an audit trail of downloads/cleaning/exports, enable logging in the wizard or call <code><a href="reference/start_audit_log.html">start_audit_log()</a></code> before running FormIOr functions.</li>
 </ul>
 </div>
 </div>

@@ -135,8 +135,10 @@ code after the <code>=</code> sign.</li>
 <p>FormIOr is designed for CHEF and uses the default base URL:</p>
 <pre><code>https://submit.digital.gov.bc.ca/app/api/v1
 </code></pre>
+<p>Note (CHEF): Metadata/schema endpoints may live at <code>/api/v1</code>. FormIOr will
+automatically retry the alternate base for metadata/schema requests when needed.</p>
 <p>If you are using a different FormIO service, you must <strong>override the base URL</strong>
-when calling <code>GetResponses()</code> or <code>GetSubmissions()</code>. This is not guaranteed to
+when calling <code>fetch_form_responses()</code> or <code>fetch_form_submissions()</code>. This is not guaranteed to
 work if the service differs from CHEF.</p>
 <hr />
 <p>Navigation</p>
