@@ -2,3 +2,12 @@
 ^\.Rproj\.user$
 ^FormIOr\.Rproj$
 ^LICENSE\.md$
+^data-raw$
+^\.github$
+^handbook_site$
+^cran-checklist\.md$
+^cran-comments\.md$
+^pkgdown\.yml$
+^FormIOr\.Rcheck$
+^\.Rlib$
+^\.DS_Store$

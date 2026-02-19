@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.9">
+<title></title>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+body, .abstract, code, .footnotes, footer, #refs, .caption { font-size: .9em; }
+li li { font-size: .95em; }
+ul:has(li > input[type="checkbox"]) { list-style: none; padding-left: 1em; }
+*, :before, :after { box-sizing: border-box; }
+a { color: steelblue; }
+pre, img { max-width: 100%; }
+pre { white-space: pre-wrap; word-break: break-word; }
+pre code { display: block; padding: 1em; overflow-x: auto; }
+code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
+:not(pre, th) > code, code[class], div > .caption { background: #f8f8f8; }
+pre > code:is(:not([class]), .language-plain, .language-none, .plain), .box, .figure, .table { background: inherit; border: 1px solid #eee; }
+pre > code {
+  &.message { border-color: #9eeaf9; }
+  &.warning { background: #fff3cd; border-color: #fff3cd; }
+  &.error { background: #f8d7da; border-color: #f8d7da; }
+}
+.fenced-chunk { border-left: 1px solid #666; }
+.code-fence {
+  opacity: .4;
+  border: 1px dashed #666;
+  border-left: 2px solid;
+  &:hover { opacity: inherit; }
+}
+.box, .figure, .table, table { margin: 1em auto; }
+div > .caption { padding: 1px 1em; }
+.figure { p:has(img, svg), pre:has(svg) { text-align: center; } }
+.flex-col { display: flex; justify-content: space-between; }
+table {
+  &:only-child:not(.table > *) { margin: auto; }
+  th, td { padding: 5px; font-variant-numeric: tabular-nums; }
+  thead, tfoot, tr:nth-child(even) { background: whitesmoke; }
+  thead th { border-bottom: 1px solid #ddd; }
+  &:not(.datatable-table) {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+  }
+}
+blockquote {
+  color: #666;
+  margin: 0;
+  padding: 1px 1em;
+  border-left: .5em solid #eee;
+}
+hr, .footnotes::before { border: 1px dashed #ddd; }
+.frontmatter { text-align: center; }
+#TOC {
+  a { text-decoration: none; }
+  ul { list-style: none; padding-left: 1em; }
+  & > ul { padding: 0; }
+  ul ul { border-left: 1px solid lightsteelblue; }
+}
+.body h2 { border-bottom: 1px solid #666; }
+.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
+.main-number::after { content: "."; }
+span[class^="ref-number-"] { font-weight: bold; }
+.ref-number-fig::after, .ref-number-tab::after { content: ":"; }
+.cross-ref-chp::before { content: "Chapter "; }
+.cross-ref-sec::before { content: "Section "; }
+.cross-ref-fig::before, .ref-number-fig::before { content: "Figure "; }
+.cross-ref-tab::before, .ref-number-tab::before { content: "Table "; }
+.cross-ref-eqn::before, .MathJax_ref:has(mjx-mtext > mjx-c + mjx-c)::before { content: "Equation "; }
+.abstract, #refs {
+  &::before { display: block; margin: 1em auto; font-weight: bold; }
+}
+.abstract::before { content: "Abstract"; text-align: center; }
+#refs::before { content: "Bibliography"; font-size: 1.5em; }
+.ref-paren-open::before { content: "("; }
+.ref-paren-close::after { content: ")"; }
+.ref-semicolon::after { content: "; "; }
+.ref-and::after { content: " and "; }
+.ref-et-al::after { content: " et al."; font-style: italic; }
+.footnote-ref a {
+  &::before { content: "["; }
+  &::after { content: "]"; }
+}
+section.footnotes {
+  margin-top: 2em;
+  &::before { content: ""; display: block; max-width: 20em; }
+}
+.fade {
+  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
+  opacity: 0.6;
+}
+
+@media print {
+  body { max-width: 100%; }
+  tr, img { break-inside: avoid; }
+}
+@media only screen and (min-width: 992px) {
+  body:not(.pagesjs) pre:has(.line-numbers):not(:hover) { white-space: pre; }
+}
+</style>
+</head>
+<body>
+<div class="frontmatter">
+</div>
+<div class="body">
+<h1 id="chp:function-reference-quick-lookup">Function Reference (Quick Lookup)</h1>
+<p>This page lists every exported FormIOr function with a short description.
+Click a function name to open its full handbook page.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="append_audit_log_entry.html">append_audit_log_entry</a></td>
+<td>This writes a small CSV/TSV log of key actions (e.g., downloads, cleaning, exports). It is designed to be easy for non-technical users to open in Excel. If you are using automatic logging, you gene…</td>
+</tr>
+<tr>
+<td><a href="apply_submission_updates.html">apply_submission_updates</a></td>
+<td>Sometimes you need to make small, targeted fixes before you export: remove test submissions, correct a value for one submission, or blank out a field for privacy reasons.</td>
+</tr>
+<tr>
+<td><a href="AskCredentials.html">AskCredentials</a></td>
+<td>Collects the Form ID and API key and caches them for this R session.</td>
+</tr>
+<tr>
+<td><a href="assign_section_hierarchy.html">assign_section_hierarchy</a></td>
+<td>Assigns hierarchical section labels to columns in flattened FormIO response data (up to 3 levels deep). You can run it interactively with prompts, or non-interactively by supplying depth, section_n…</td>
+</tr>
+<tr>
+<td><a href="build_data_codebook.html">build_data_codebook</a></td>
+<td>This produces a plain-language table that documents each column in your data. It can optionally use a FormIO schema (via build_field_dictionary()) to add labels, sections, and descriptions. If audi…</td>
+</tr>
+<tr>
+<td><a href="build_field_dictionary.html">build_field_dictionary</a></td>
+<td>This creates a clean table that lists each field in your form. It is meant to be easy to read and share with non-technical staff. If audit logging is active (see start_audit_log()), this action is …</td>
+</tr>
+<tr>
+<td><a href="collapse_checkbox_selections.html">collapse_checkbox_selections</a></td>
+<td>When a question generates multiple TRUE/FALSE columns (e.g., select boxes), this function combines them into a single comma-separated column. If audit logging is active (see start_audit_log()), thi…</td>
+</tr>
+<tr>
+<td><a href="collapse_repeated_values.html">collapse_repeated_values</a></td>
+<td>Automatically collapses repeated values within each submission ID using a consistent strategy (or simple heuristics when strategy = “auto”). This is a non-interactive alternative to resolve_duplica…</td>
+</tr>
+<tr>
+<td><a href="compare_form_versions.html">compare_form_versions</a></td>
+<td>Shows what changed between two form versions: fields added, removed, or updated. If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="count_multivalue_fields.html">count_multivalue_fields</a></td>
+<td>Creates a diagnostic data frame with the same shape as the flattened responses, where each original value (except in the ID column) is replaced by the number of distinct non-NA values that appear i…</td>
+</tr>
+<tr>
+<td><a href="deduplicate_submission_rows.html">deduplicate_submission_rows</a></td>
+<td>Keeps one row per submission ID, using a timestamp column when available (for example created or modified), otherwise keeps first/last row. If audit logging is active (see start_audit_log()), this …</td>
+</tr>
+<tr>
+<td><a href="describe_form_schema.html">describe_form_schema</a></td>
+<td>This is a simple overview of a form: the name, version, and how many fields it contains. It is meant for non-technical users who want a quick summary. If audit logging is active (see start_audit_lo…</td>
+</tr>
+<tr>
+<td><a href="detect_suspicious_submissions.html">detect_suspicious_submissions</a></td>
+<td>Evaluates whether pre/post time groups are statistically comparable and produces row-level suspiciousness flags. This is designed for workflows where a survey changed mid-collection (for example, f…</td>
+</tr>
+<tr>
+<td><a href="export_results_to_excel.html">export_results_to_excel</a></td>
+<td>This is a simple, user-friendly export helper for FormIOr outputs. It accepts a data.frame, a list of data.frames (multiple sheets), or a list returned by fetch_form_responses() / flatten_submissio…</td>
+</tr>
+<tr>
+<td><a href="fetch_form_metadata.html">fetch_form_metadata</a></td>
+<td>Fetches form metadata from the API and retries the alternate base URL when parsing fails (CHEF compatibility behavior).</td>
+</tr>
+<tr>
+<td><a href="fetch_form_responses.html">fetch_form_responses</a></td>
+<td>Downloads response export JSON from a form endpoint and returns parsed submissions by default.</td>
+</tr>
+<tr>
+<td><a href="fetch_form_submissions.html">fetch_form_submissions</a></td>
+<td>Fetches submission-level metadata (not full response payloads) from a ‘FormIO’ endpoint.</td>
+</tr>
+<tr>
+<td><a href="flatten_submission_records.html">flatten_submission_records</a></td>
+<td>This function will flatten submissions coming from a FormIO list that has nested elements</td>
+</tr>
+<tr>
+<td><a href="is_audit_log_active.html">is_audit_log_active</a></td>
+<td>This is most useful in scripts when you want to conditionally add a manual note using append_audit_log_entry() only when logging is enabled.</td>
+</tr>
+<tr>
+<td><a href="launch_formior_addin.html">launch_formior_addin</a></td>
+<td>Provides a minimal point-and-click interface for key FormIOr functions.</td>
+</tr>
+<tr>
+<td><a href="plot_categorical_summary.html">plot_categorical_summary</a></td>
+<td>If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_numeric_distribution.html">plot_numeric_distribution</a></td>
+<td>If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_response_timeline.html">plot_response_timeline</a></td>
+<td>Convenience wrapper around summarize_response_timeline() that draws a simple line chart using base graphics. If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="plot_word_cloud.html">plot_word_cloud</a></td>
+<td>Requires the optional wordcloud package. If it is not installed, the function will stop with a helpful message. If audit logging is active (see start_audit_log()), this action is recorded.</td>
+</tr>
+<tr>
+<td><a href="rename_columns_from_dictionary.html">rename_columns_from_dictionary</a></td>
+<td>Renames columns in a list returned by flatten_submission_records(). You can run it interactively (prompt for each column) or non-interactively with rename_map.</td>
+</tr>
+<tr>
+<td><a href="resolve_duplicate_values.html">resolve_duplicate_values</a></td>
+<td>Interactive function designed for users with little or no R experience. It helps resolve columns that contain multiple values per submission (e.g. repeating sections, “add another” items, multi-sel…</td>
+</tr>
+<tr>
+<td><a href="review_duplicate_rows.html">review_duplicate_rows</a></td>
+<td>This function walks you through duplicate groups defined by key columns (for example email, username, project_id). For each duplicate group, it shows selected columns so you can compare submissions…</td>
+</tr>
+<tr>
+<td><a href="run_form_processing_workflow.html">run_form_processing_workflow</a></td>
+<td>This interactive helper walks you through a complete FormIOr workflow: downloading responses, flattening and cleaning the data, generating simple diagnostics (like a codebook and basic plots), and …</td>
+</tr>
+<tr>
+<td><a href="standardize_column_names.html">standardize_column_names</a></td>
+<td>Designed for non-technical users who want consistent column names after downloading FormIO submissions. Works with either a raw data frame or the list returned by flatten_submission_records(). If a…</td>
+</tr>
+<tr>
+<td><a href="start_audit_log.html">start_audit_log</a></td>
+<td>Creates a new audit log file and turns on automatic logging for FormIOr functions. Each subsequent action (downloads, cleaning, exports, etc.) will append a new row to the log.</td>
+</tr>
+<tr>
+<td><a href="stop_audit_log.html">stop_audit_log</a></td>
+<td>Turns off automatic logging. The log file is not deleted. You can start a new log later using start_audit_log().</td>
+</tr>
+<tr>
+<td><a href="summarize_field_distribution.html">summarize_field_distribution</a></td>
+<td>Designed for non-technical users: it accepts either a data frame or the list produced by flatten_submission_records() and returns a simple summary. Numeric fields get descriptive statistics; catego…</td>
+</tr>
+<tr>
+<td><a href="summarize_response_timeline.html">summarize_response_timeline</a></td>
+<td>Counts responses per day/week/month (or hour), using a timestamp column. If date_col is NULL, the function tries common timestamp names automatically (e.g., created, modified, _createdAt). If audit…</td>
+</tr>
+<tr>
+<td><a href="tabulate_field_by_group.html">tabulate_field_by_group</a></td>
+<td>Builds a simple cross-tabulation between two columns, returning both a wide table and a long table that includes counts and (optional) percents. If audit logging is active (see start_audit_log()), …</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Navigation</p>
+<ul>
+<li>Home: <a href="../index.html">Handbook Index</a></li>
+<li>Function Index: <a href="index.html">All Functions</a></li>
+</ul>
+</div>
+</body>
+</html>

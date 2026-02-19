@@ -1,0 +1,212 @@
+
+R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+> library(FormIOr)
+> 
+> test_check("FormIOr")
+# A tibble: 2 x 2
+     No Names
+  <int> <chr>
+1     1 col_a
+2     2 col_b
+# A tibble: 2 x 4
+     No Names `Level-1` `Level-2`
+  <int> <chr> <chr>     <chr>    
+1     1 col_a ""        ""       
+2     2 col_b ""        ""       
+# A tibble: 2 x 4
+     No Names `Level-1`  `Level-2`
+  <int> <chr> <chr>      <chr>    
+1     1 col_a "LevelOne" ""       
+2     2 col_b ""         ""       
+# A tibble: 2 x 4
+     No Names `Level-1`  `Level-2`
+  <int> <chr> <chr>      <chr>    
+1     1 col_a "LevelOne" ""       
+2     2 col_b ""         ""       
+# A tibble: 2 x 4
+     No Names `Level-1`  `Level-2` 
+  <int> <chr> <chr>      <chr>     
+1     1 col_a "LevelOne" ""        
+2     2 col_b ""         "LevelTwo"
+# A tibble: 2 x 4
+     No Names `Level-1`  `Level-2` 
+  <int> <chr> <chr>      <chr>     
+1     1 col_a "LevelOne" ""        
+2     2 col_b ""         "LevelTwo"
+# A tibble: 2 x 4
+     No Names `Level-1` `Level-2`
+  <int> <chr> <chr>     <chr>    
+1     1 col_a LevelOne  General  
+2     2 col_b General   LevelTwo 
+Detected nested columns; flattening...
+# A tibble: 24 x 2
+      No Names              
+   <int> <chr>              
+ 1     1 form-submission_id 
+ 2     2 form-created_at    
+ 3     3 form-user          
+ 4     4 late_entry         
+ 5     5 food_category      
+ 6     6 region             
+ 7     7 is_category_correct
+ 8     8 food_name          
+ 9     9 food_description   
+10    10 status             
+11    11 completion_pct     
+12    12 select_chef-label  
+13    13 select_chef-value  
+14    14 select_recipe-label
+15    15 select_recipe-value
+16    16 final_notes        
+17    17 editGrid           
+18    18 total_cost         
+19    19 total_items        
+20    20 editGrid-ingredient
+21    21 editGrid-quantity  
+22    22 editGrid-cost      
+23    23 editGrid-source    
+24    24 editGrid-tags      
+# A tibble: 24 x 3
+      No Names               `Level-1`
+   <int> <chr>               <chr>    
+ 1     1 form-submission_id  ""       
+ 2     2 form-created_at     ""       
+ 3     3 form-user           ""       
+ 4     4 late_entry          ""       
+ 5     5 food_category       ""       
+ 6     6 region              ""       
+ 7     7 is_category_correct ""       
+ 8     8 food_name           ""       
+ 9     9 food_description    ""       
+10    10 status              ""       
+11    11 completion_pct      ""       
+12    12 select_chef-label   ""       
+13    13 select_chef-value   ""       
+14    14 select_recipe-label ""       
+15    15 select_recipe-value ""       
+16    16 final_notes         ""       
+17    17 editGrid            ""       
+18    18 total_cost          ""       
+19    19 total_items         ""       
+20    20 editGrid-ingredient ""       
+21    21 editGrid-quantity   ""       
+22    22 editGrid-cost       ""       
+23    23 editGrid-source     ""       
+24    24 editGrid-tags       ""       
+# A tibble: 24 x 3
+      No Names               `Level-1` 
+   <int> <chr>               <chr>     
+ 1     1 form-submission_id  "LevelOne"
+ 2     2 form-created_at     ""        
+ 3     3 form-user           ""        
+ 4     4 late_entry          ""        
+ 5     5 food_category       ""        
+ 6     6 region              ""        
+ 7     7 is_category_correct ""        
+ 8     8 food_name           ""        
+ 9     9 food_description    ""        
+10    10 status              ""        
+11    11 completion_pct      ""        
+12    12 select_chef-label   ""        
+13    13 select_chef-value   ""        
+14    14 select_recipe-label ""        
+15    15 select_recipe-value ""        
+16    16 final_notes         ""        
+17    17 editGrid            ""        
+18    18 total_cost          ""        
+19    19 total_items         ""        
+20    20 editGrid-ingredient ""        
+21    21 editGrid-quantity   ""        
+22    22 editGrid-cost       ""        
+23    23 editGrid-source     ""        
+24    24 editGrid-tags       ""        
+# A tibble: 24 x 3
+      No Names               `Level-1` 
+   <int> <chr>               <chr>     
+ 1     1 form-submission_id  "LevelOne"
+ 2     2 form-created_at     ""        
+ 3     3 form-user           ""        
+ 4     4 late_entry          ""        
+ 5     5 food_category       ""        
+ 6     6 region              ""        
+ 7     7 is_category_correct ""        
+ 8     8 food_name           ""        
+ 9     9 food_description    ""        
+10    10 status              ""        
+11    11 completion_pct      ""        
+12    12 select_chef-label   ""        
+13    13 select_chef-value   ""        
+14    14 select_recipe-label ""        
+15    15 select_recipe-value ""        
+16    16 final_notes         ""        
+17    17 editGrid            ""        
+18    18 total_cost          ""        
+19    19 total_items         ""        
+20    20 editGrid-ingredient ""        
+21    21 editGrid-quantity   ""        
+22    22 editGrid-cost       ""        
+23    23 editGrid-source     ""        
+24    24 editGrid-tags       ""        
+# A tibble: 24 x 3
+      No Names               `Level-1`
+   <int> <chr>               <chr>    
+ 1     1 form-submission_id  LevelOne 
+ 2     2 form-created_at     General  
+ 3     3 form-user           General  
+ 4     4 late_entry          General  
+ 5     5 food_category       General  
+ 6     6 region              General  
+ 7     7 is_category_correct General  
+ 8     8 food_name           General  
+ 9     9 food_description    General  
+10    10 status              General  
+11    11 completion_pct      General  
+12    12 select_chef-label   General  
+13    13 select_chef-value   General  
+14    14 select_recipe-label General  
+15    15 select_recipe-value General  
+16    16 final_notes         General  
+17    17 editGrid            General  
+18    18 total_cost          General  
+19    19 total_items         General  
+20    20 editGrid-ingredient General  
+21    21 editGrid-quantity   General  
+22    22 editGrid-cost       General  
+23    23 editGrid-source     General  
+24    24 editGrid-tags       General  
+Normalized 2 column name(s).
+Resolved repeats across 3 column(s).
+Resolved repeats across 1 column(s).
+Resolved repeats across 1 column(s).
+Resolved repeats across 1 column(s).
+Kept 2 of 3 rows.
+Compacted 1 selection group(s).
+Compacted 1 selection group(s).
+Compacted 1 selection group(s).
+[ FAIL 0 | WARN 0 | SKIP 2 | PASS 380 ]
+
+══ Skipped tests (2) ═══════════════════════════════════════════════════════════
+• interactive() is not TRUE (1): 'test-askcredentials.R:32:2'
+• wordcloud is installed; skipping error-path test. (1): 'test-plots.R:112:3'
+
+[ FAIL 0 | WARN 0 | SKIP 2 | PASS 380 ]
+> 
+> proc.time()
+   user  system elapsed 
+  1.577   0.233   1.858 

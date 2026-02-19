@@ -2,17 +2,31 @@
 % Please edit documentation in R/AskCredentials.R
 \name{AskCredentials}
 \alias{AskCredentials}
-\title{Ask Credentials}
+\title{Ask for Form credentials}
 \usage{
-AskCredentials()
+AskCredentials(form_id = NULL, api = NULL, api_key = NULL)
+}
+\arguments{
+\item{form_id}{Optional form ID.}
+
+\item{api}{Optional API key alias.}
+
+\item{api_key}{Optional API key.}
 }
 \value{
-Vector of 2
+Named character vector with \code{ID} and \code{Key}.
 }
 \description{
-Function to get the credentials that will be used to access the Form's API. Generally this function will be called from within GetResponses()
+Collects the Form ID and API key and caches them for this R session.
+}
+\details{
+If \code{form_id} and \code{api}/\code{api_key} are provided, prompts are skipped. If either
+value is missing, the function prompts only for the missing value(s) in an
+interactive session.
 }
 \examples{
- AskCredentials()
-
+\dontrun{
+AskCredentials()
+AskCredentials(form_id = "myformID", api = "myapiToken")
+}
 }

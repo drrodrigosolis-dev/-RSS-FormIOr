@@ -1,0 +1,42 @@
+
+R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+> library(FormIOr)
+> 
+> test_check("FormIOr")
+Normalized 2 column name(s).
+Resolved repeats across 3 column(s).
+Resolved repeats across 1 column(s).
+Resolved repeats across 1 column(s).
+Resolved repeats across 1 column(s).
+Kept 2 of 3 rows.
+Compacted 1 selection group(s).
+Compacted 1 selection group(s).
+Compacted 1 selection group(s).
+[ FAIL 0 | WARN 0 | SKIP 3 | PASS 355 ]
+
+══ Skipped tests (3) ═══════════════════════════════════════════════════════════
+• interactive() is not TRUE (2): 'test-addsections.R:2:2',
+  'test-addsections.R:60:2'
+• wordcloud is installed; skipping error-path test. (1): 'test-plots.R:112:3'
+
+[ FAIL 0 | WARN 0 | SKIP 3 | PASS 355 ]
+> 
+> proc.time()
+   user  system elapsed 
+  1.074   0.165   1.250 

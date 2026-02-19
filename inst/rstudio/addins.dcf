@@ -1,0 +1,4 @@
+Name: FormIOr Addin
+Description: Point-and-click interface for FormIOr functions.
+Binding: launch_formior_addin
+Interactive: true

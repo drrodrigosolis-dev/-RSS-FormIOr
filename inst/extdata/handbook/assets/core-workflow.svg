@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="220" viewBox="0 0 1000 220">
+  <style>
+    .box { rx: 14; ry: 14; }
+    .label { font-family: "Helvetica", "Arial", sans-serif; font-size: 18px; fill: #0b1f2a; font-weight: 700; }
+    .sub { font-family: "Helvetica", "Arial", sans-serif; font-size: 13px; fill: #0b1f2a; }
+    .arrow { fill: #2d3e50; }
+  </style>
+
+  <rect class="box" x="20" y="45" width="170" height="120" fill="#CFE8F3" stroke="#1B4965" stroke-width="2"/>
+  <text class="label" x="35" y="90">Download</text>
+  <text class="sub" x="35" y="115">fetch_form_responses()</text>
+
+  <polygon class="arrow" points="205,105 245,105 245,95 265,110 245,125 245,115 205,115"/>
+
+  <rect class="box" x="275" y="45" width="170" height="120" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+  <text class="label" x="290" y="90">Flatten</text>
+  <text class="sub" x="290" y="115">flatten_submission_records()</text>
+
+  <polygon class="arrow" points="460,105 500,105 500,95 520,110 500,125 500,115 460,115"/>
+
+  <rect class="box" x="530" y="45" width="170" height="120" fill="#FFF3BF" stroke="#8C6D1F" stroke-width="2"/>
+  <text class="label" x="545" y="90">Clean</text>
+  <text class="sub" x="545" y="115">Normalize / Dedup</text>
+
+  <polygon class="arrow" points="715,105 755,105 755,95 775,110 755,125 755,115 715,115"/>
+
+  <rect class="box" x="785" y="45" width="170" height="120" fill="#E3D5FF" stroke="#5A3E9C" stroke-width="2"/>
+  <text class="label" x="800" y="90">Diagnose</text>
+  <text class="sub" x="800" y="115">Codebook / Plots</text>
+
+  <polygon class="arrow" points="905,175 905,185 890,185 920,205 950,185 935,185 935,175"/>
+
+  <rect class="box" x="785" y="170" width="170" height="40" fill="#FFE5D9" stroke="#9C3E2B" stroke-width="2"/>
+  <text class="label" x="800" y="196">Export</text>
+  <text class="sub" x="870" y="196">export_results_to_excel()</text>
+</svg>

@@ -1,0 +1,1113 @@
+
+R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "FormIOr"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "FormIOr-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('FormIOr')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("AddSections")
+> ### * AddSections
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: AddSections
+> ### Title: Add Hierarchical Sections to FormIO Response Columns
+> ### Aliases: AddSections
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D # Assuming FoodTypes is a sample dataset with possible nests
+> ##D data("FoodTypes")
+> ##D sectioned <- AddSections(FoodTypes)
+> ##D print(sectioned$Sections)
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("AddSections", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("AdjustSubmissions")
+> ### * AdjustSubmissions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: AdjustSubmissions
+> ### Title: Adjust submissions by ID (delete or edit specific values)
+> ### Aliases: AdjustSubmissions
+> 
+> ### ** Examples
+> 
+> df <- data.frame(
++   submissionId = c("a", "b", "c"),
++   status = c("ok", "test", "ok"),
++   stringsAsFactors = FALSE
++ )
+> 
+> # Delete one submission and update a value
+> out <- AdjustSubmissions(
++   df,
++   id_col = "submissionId",
++   delete_ids = "b",
++   updates = data.frame(id = "c", column = "status", value = "review", stringsAsFactors = FALSE),
++   quiet = TRUE
++ )
+> out$data
+  submissionId status
+1            a     ok
+3            c review
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("AdjustSubmissions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("AskCredentials")
+> ### * AskCredentials
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: AskCredentials
+> ### Title: Ask for Form credentials
+> ### Aliases: AskCredentials
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D AskCredentials()
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("AskCredentials", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("CompactSelections")
+> ### * CompactSelections
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: CompactSelections
+> ### Title: Compact checkbox/multi-select columns into a single readable
+> ###   column
+> ### Aliases: CompactSelections
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D compacted <- CompactSelections(flat)
+> ##D head(compacted$data)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("CompactSelections", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("CompareFormVersions")
+> ### * CompareFormVersions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: CompareFormVersions
+> ### Title: Compare two versions of a form
+> ### Aliases: CompareFormVersions
+> 
+> ### ** Examples
+> 
+> old <- list(components = list(
++   list(type = "textfield", key = "name", label = "Name", input = TRUE)
++ ))
+> new <- list(components = list(
++   list(type = "textfield", key = "name", label = "Full name", input = TRUE),
++   list(type = "number", key = "age", label = "Age", input = TRUE)
++ ))
+> CompareFormVersions(old, new)
+Added: 1, removed: 0, changed: 1.
+$by
+[1] "key"
+
+$summary
+     metric count
+1     added     1
+2   removed     0
+3   changed     1
+4 unchanged     0
+
+$added
+  key label   type required description default options section path input
+2 age   Age number       NA        <NA>    <NA>    <NA>    <NA>  age  TRUE
+
+$removed
+ [1] key         label       type        required    description default    
+ [7] options     section     path        input      
+<0 rows> (or 0-length row.names)
+
+$changed
+   key changes label_old label_new  type_old  type_new required_old
+1 name   label      Name Full name textfield textfield           NA
+  required_new description_old description_new default_old default_new
+1           NA            <NA>            <NA>        <NA>        <NA>
+  options_old options_new section_old section_new
+1        <NA>        <NA>        <NA>        <NA>
+
+> 
+> ## Not run: 
+> ##D old_meta <- GetFormMetadata(form_id = "123", api_key = "abc")
+> ##D new_meta <- GetFormMetadata(form_id = "123", api_key = "abc")
+> ##D CompareFormVersions(old_meta, new_meta)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("CompareFormVersions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("CrossTab")
+> ### * CrossTab
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: CrossTab
+> ### Title: Cross-tabulate two fields
+> ### Aliases: CrossTab
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D CrossTab(flat, "region", "program", percent = "row")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("CrossTab", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DeduplicateSubmissions")
+> ### * DeduplicateSubmissions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DeduplicateSubmissions
+> ### Title: Deduplicate submissions by submission ID
+> ### Aliases: DeduplicateSubmissions
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc"))
+> ##D dedup <- DeduplicateSubmissions(flat, id_col = "submissionId")
+> ##D nrow(dedup$data)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DeduplicateSubmissions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("DescribeForm")
+> ### * DescribeForm
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DescribeForm
+> ### Title: Describe a form in plain language
+> ### Aliases: DescribeForm
+> 
+> ### ** Examples
+> 
+> form <- list(
++   title = "Sample Form",
++   name = "sample_form",
++   version = 2,
++   components = list(
++     list(type = "textfield", key = "first_name", label = "First name", input = TRUE),
++     list(type = "panel", title = "Details", components = list(
++       list(type = "number", key = "age", label = "Age", input = TRUE)
++     ))
++   )
++ )
+> DescribeForm(form)
+Form Sample Form has 2 field(s) across 1 section(s).
+$meta
+$meta$title
+[1] "Sample Form"
+
+$meta$name
+[1] "sample_form"
+
+$meta$path
+[1] NA
+
+$meta$id
+[1] NA
+
+$meta$version
+[1] 2
+
+$meta$created
+[1] NA
+
+$meta$modified
+[1] NA
+
+$meta$status
+[1] NA
+
+
+$counts
+$counts$components
+[1] 3
+
+$counts$fields
+[1] 2
+
+$counts$sections
+[1] 1
+
+
+> 
+> ## Not run: 
+> ##D meta <- GetFormMetadata(form_id = "123", api_key = "abc")
+> ##D DescribeForm(meta)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DescribeForm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("ExportToExcel")
+> ### * ExportToExcel
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: ExportToExcel
+> ### Title: Export data to Excel (or CSV if needed)
+> ### Aliases: ExportToExcel
+> 
+> ### ** Examples
+> 
+> df <- data.frame(name = c("A", "B"), score = c(1, 2))
+> ## Not run: 
+> ##D   ExportToExcel(df, tempfile(fileext = ".xlsx"), overwrite = TRUE)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("ExportToExcel", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("FieldDictionary")
+> ### * FieldDictionary
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: FieldDictionary
+> ### Title: Build a field dictionary for a form
+> ### Aliases: FieldDictionary
+> 
+> ### ** Examples
+> 
+> form <- list(
++   title = "Sample Form",
++   components = list(
++     list(type = "textfield", key = "first_name", label = "First name", input = TRUE),
++     list(type = "select", key = "color", label = "Favorite color", input = TRUE,
++          data = list(values = list(list(label = "Red", value = "red"))))
++   )
++ )
+> FieldDictionary(form)
+Found 2 field(s).
+         key          label      type required description default   options
+1 first_name     First name textfield       NA        <NA>    <NA>      <NA>
+2      color Favorite color    select       NA        <NA>    <NA> Red (red)
+  section       path input
+1    <NA> first_name  TRUE
+2    <NA>      color  TRUE
+> 
+> ## Not run: 
+> ##D meta <- GetFormMetadata(form_id = "123", api_key = "abc")
+> ##D FieldDictionary(meta, include = "all")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("FieldDictionary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("FixDups")
+> ### * FixDups
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: FixDups
+> ### Title: Clean duplicated rows caused by multi-value fields in flattened
+> ###   FormIO data
+> ### Aliases: FixDups
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D # Typical workflow
+> ##D responses <- GetResponses(form_id = "your-form-id", api_key = "your-api-key")
+> ##D flat <- FlattenSubmissions(responses)
+> ##D 
+> ##D # Run interactive cleaning
+> ##D result <- FixDups(flat)
+> ##D 
+> ##D # View the cleaned data
+> ##D View(result$cleaned)
+> ##D 
+> ##D # See what was done to each column
+> ##D result$decisions
+> ##D 
+> ##D # Dry run to preview changes
+> ##D FixDups(flat, dry_run = TRUE)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("FixDups", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("FlagSuspiciousSubmissions")
+> ### * FlagSuspiciousSubmissions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: FlagSuspiciousSubmissions
+> ### Title: Flag suspicious submissions and enforce pre/post comparability
+> ###   checks
+> ### Aliases: FlagSuspiciousSubmissions
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D data("SuspiciousSurveyDemo", package = "FormIOr")
+> ##D 
+> ##D out <- FlagSuspiciousSubmissions(
+> ##D   SuspiciousSurveyDemo,
+> ##D   id_col = "submissionId",
+> ##D   time_col = "created",
+> ##D   cutoff_time = "2026-01-06 00:00:00",
+> ##D   group_action = "split_only"
+> ##D )
+> ##D 
+> ##D out$comparability$non_comparable
+> ##D head(out$comparability$field_tests)
+> ##D 
+> ##D # If groups differ and post phase is identity-verified, prefer post-only:
+> ##D post_only <- FlagSuspiciousSubmissions(
+> ##D   SuspiciousSurveyDemo,
+> ##D   id_col = "submissionId",
+> ##D   time_col = "created",
+> ##D   cutoff_time = "2026-01-06 00:00:00",
+> ##D   group_action = "omit_pre"
+> ##D )
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("FlagSuspiciousSubmissions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("FlattenSubmissions")
+> ### * FlattenSubmissions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: FlattenSubmissions
+> ### Title: Flatten Submissions
+> ### Aliases: FlattenSubmissions
+> 
+> ### ** Examples
+> 
+> 
+> x<-FoodTypes
+> 
+> # Nested Structure
+> head(x)
+  form.submission_id            form.created_at form.user late_entry
+1             food-1 2026-01-28 11:52:28.070558    user_A      FALSE
+2             food-2 2026-01-28 11:52:27.070558    user_B      FALSE
+3             food-3 2026-01-28 11:52:26.070558    user_C      FALSE
+4             food-4 2026-01-28 11:52:25.070558    user_D      FALSE
+5             food-5 2026-01-28 11:52:24.070558    user_E      FALSE
+6             food-6 2026-01-28 11:52:23.070558    user_F      FALSE
+  food_category  region is_category_correct  food_name
+1         Fruit   North                 yes      Apple
+2     Vegetable   South                 yes     Carrot
+3          Meat    East                 yes     Salmon
+4         Grain    West                 yes       Rice
+5         Dairy Central                 yes     Cheese
+6         Mixed Coastal                 yes Mixed Bowl
+              food_description   status completion_pct select_chef.label
+1        Fresh seasonal apples  planned             10            Chef A
+2 Root vegetable used in soups prepared             40            Chef B
+3           Wild-caught salmon   served             90            Chef C
+4         Staple grain product  planned             20            Chef A
+5      Fermented dairy product   served             80            Chef B
+6 Combination of various foods prepared             50            Chef C
+  select_chef.value select_recipe.label select_recipe.value
+1            Chef A           Apple Pie           Apple Pie
+2            Chef B         Carrot Soup         Carrot Soup
+3            Chef C      Grilled Salmon      Grilled Salmon
+4            Chef A           Rice Bowl           Rice Bowl
+5            Chef B        Cheese Plate        Cheese Plate
+6            Chef C         Fusion Dish         Fusion Dish
+            final_notes
+1 Seasonal availability
+2    Requires prep time
+3          High protein
+4           Bulk staple
+5          Aged product
+6            Custom mix
+                                                      editGrid total_cost
+1                                                         NULL         NA
+2                   Flour, Sugar, 1, 2, 5, 10, Local, Imported         15
+3 Carrot, Onion, Garlic, 5, 2, 1, 3, 2, 1, Local, Local, Local          6
+4                                          Salmon, 2, 20, Wild         20
+5            Rice, Beans, 10, 5, 15, 8, staple, grain, protein         23
+6                                                         NULL          0
+  total_items
+1           0
+2           2
+3           3
+4           1
+5           2
+6           0
+> 
+> #Flattened Structure
+> xFlat<-FlattenSubmissions(x)
+> 
+> xFlat$FlatResponses ## Survey Output
+# A tibble: 10 × 24
+   `form-submission_id` `form-created_at`   `form-user` late_entry food_category
+   <chr>                <chr>               <chr>       <lgl>      <chr>        
+ 1 food-1               2026-01-28 11:52:2… user_A      FALSE      Fruit        
+ 2 food-2               2026-01-28 11:52:2… user_B      FALSE      Vegetable    
+ 3 food-2               2026-01-28 11:52:2… user_B      FALSE      Vegetable    
+ 4 food-3               2026-01-28 11:52:2… user_C      FALSE      Meat         
+ 5 food-3               2026-01-28 11:52:2… user_C      FALSE      Meat         
+ 6 food-3               2026-01-28 11:52:2… user_C      FALSE      Meat         
+ 7 food-4               2026-01-28 11:52:2… user_D      FALSE      Grain        
+ 8 food-5               2026-01-28 11:52:2… user_E      FALSE      Dairy        
+ 9 food-5               2026-01-28 11:52:2… user_E      FALSE      Dairy        
+10 food-6               2026-01-28 11:52:2… user_F      FALSE      Mixed        
+# ℹ 19 more variables: region <chr>, is_category_correct <chr>,
+#   food_name <chr>, food_description <chr>, status <chr>,
+#   completion_pct <dbl>, `select_chef-label` <chr>, `select_chef-value` <chr>,
+#   `select_recipe-label` <chr>, `select_recipe-value` <chr>,
+#   final_notes <chr>, editGrid <lgl>, total_cost <dbl>, total_items <dbl>,
+#   `editGrid-ingredient` <chr>, `editGrid-quantity` <dbl>,
+#   `editGrid-cost` <dbl>, `editGrid-source` <chr>, `editGrid-tags` <I<list>>
+> xFlat$ColumnNames   ## New Columns Formed
+   Number                Name
+1       1  form-submission_id
+2       2     form-created_at
+3       3           form-user
+4       4          late_entry
+5       5       food_category
+6       6              region
+7       7 is_category_correct
+8       8           food_name
+9       9    food_description
+10     10              status
+11     11      completion_pct
+12     12   select_chef-label
+13     13   select_chef-value
+14     14 select_recipe-label
+15     15 select_recipe-value
+16     16         final_notes
+17     17            editGrid
+18     18          total_cost
+19     19         total_items
+20     20 editGrid-ingredient
+21     21   editGrid-quantity
+22     22       editGrid-cost
+23     23     editGrid-source
+24     24       editGrid-tags
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("FlattenSubmissions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("FormIOrWorkflow")
+> ### * FormIOrWorkflow
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: FormIOrWorkflow
+> ### Title: Guided end-to-end workflow (download -> clean -> report ->
+> ###   export)
+> ### Aliases: FormIOrWorkflow
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D # Fully guided interactive run
+> ##D out <- FormIOrWorkflow()
+> ##D 
+> ##D # Start from an existing data.frame (skip download)
+> ##D out <- FormIOrWorkflow(data = FoodTypes)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("FormIOrWorkflow", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("GetFormMetadata")
+> ### * GetFormMetadata
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: GetFormMetadata
+> ### Title: Get metadata for a 'FormIO' form
+> ### Aliases: GetFormMetadata
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D GetFormMetadata(form_id = "your_form_id", api_key = "your_api_key")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("GetFormMetadata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("GetResponses")
+> ### * GetResponses
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: GetResponses
+> ### Title: Get responses submitted to a 'FormIO' form
+> ### Aliases: GetResponses
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D GetResponses(form_id = "your_form_id", api_key = "your_api_key")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("GetResponses", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("IsAuditLogActive")
+> ### * IsAuditLogActive
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: IsAuditLogActive
+> ### Title: Check whether audit logging is active
+> ### Aliases: IsAuditLogActive
+> 
+> ### ** Examples
+> 
+> IsAuditLogActive()
+[1] FALSE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("IsAuditLogActive", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("MakeCodebook")
+> ### * MakeCodebook
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: MakeCodebook
+> ### Title: Create a codebook for a dataset
+> ### Aliases: MakeCodebook
+> 
+> ### ** Examples
+> 
+> df <- data.frame(age = c(10, 12, NA), color = c("red", "blue", "red"))
+> MakeCodebook(df)
+Codebook created for 2 field(s).
+   name label schema_key type     class required description section options
+1   age   age       <NA> <NA>   numeric       NA        <NA>    <NA>    <NA>
+2 color color       <NA> <NA> character       NA        <NA>    <NA>    <NA>
+  missing missing_pct unique example     levels min max mean
+1       1        33.3      2      10       <NA>  10  12   11
+2       0         0.0      2     red red | blue  NA  NA   NA
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("MakeCodebook", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("NormalizeColumnNames")
+> ### * NormalizeColumnNames
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: NormalizeColumnNames
+> ### Title: Normalize column names into a clean, readable format
+> ### Aliases: NormalizeColumnNames
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc"))
+> ##D norm <- NormalizeColumnNames(flat)
+> ##D names(norm$data)
+> ##D norm$name_map
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("NormalizeColumnNames", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("PlotBarSummary")
+> ### * PlotBarSummary
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: PlotBarSummary
+> ### Title: Plot a bar chart for a categorical field
+> ### Aliases: PlotBarSummary
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D PlotBarSummary(flat, "region")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("PlotBarSummary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("PlotHistogram")
+> ### * PlotHistogram
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: PlotHistogram
+> ### Title: Plot a histogram for a numeric field
+> ### Aliases: PlotHistogram
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D PlotHistogram(flat, "age")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("PlotHistogram", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("PlotResponseTimeline")
+> ### * PlotResponseTimeline
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: PlotResponseTimeline
+> ### Title: Plot a response timeline
+> ### Aliases: PlotResponseTimeline
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D PlotResponseTimeline(flat, date_col = "created", interval = "month")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("PlotResponseTimeline", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("PlotWordcloud")
+> ### * PlotWordcloud
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: PlotWordcloud
+> ### Title: Plot a wordcloud for a text field
+> ### Aliases: PlotWordcloud
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D PlotWordcloud(flat, "feedback")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("PlotWordcloud", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("RenameCols")
+> ### * RenameCols
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: RenameCols
+> ### Title: Rename columns from a flattened FormIO dataset
+> ### Aliases: RenameCols
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D # Interactive
+> ##D RenameCols(flat)
+> ##D 
+> ##D # Non-interactive map
+> ##D map_df <- data.frame(
+> ##D   OldNames = c("submissionId", "age"),
+> ##D   NewNames = c("submission_id", "age_years"),
+> ##D   stringsAsFactors = FALSE
+> ##D )
+> ##D RenameCols(flat, rename_map = map_df, quiet = TRUE)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("RenameCols", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("ResolveRepeats")
+> ### * ResolveRepeats
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: ResolveRepeats
+> ### Title: Resolve repeated answers into one row per submission
+> ### Aliases: ResolveRepeats
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc"))
+> ##D resolved <- ResolveRepeats(flat, id_col = "submissionId")
+> ##D head(resolved$data)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("ResolveRepeats", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("ResponseTimeline")
+> ### * ResponseTimeline
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: ResponseTimeline
+> ### Title: Summarize responses over time
+> ### Aliases: ResponseTimeline
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D ResponseTimeline(flat, date_col = "created", interval = "week")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("ResponseTimeline", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("ReviewDuplicateSubmissions")
+> ### * ReviewDuplicateSubmissions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: ReviewDuplicateSubmissions
+> ### Title: Interactively review and resolve duplicate submissions
+> ### Aliases: ReviewDuplicateSubmissions
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc"))
+> ##D out <- ReviewDuplicateSubmissions(flat, id_col = "form_submissionid")
+> ##D View(out$decisions)
+> ##D 
+> ##D # Non-interactive example (scriptable)
+> ##D df <- data.frame(
+> ##D   submissionId = c("a", "a", "b", "b", "b"),
+> ##D   email = c("x@example.com", "x@example.com", "x@example.com", "x@example.com", "x@example.com"),
+> ##D   status = c("draft", "final", "test", "final", "final"),
+> ##D   stringsAsFactors = FALSE
+> ##D )
+> ##D # Group 1 will be the email=x@example.com group (the only group in this example)
+> ##D keep_map <- list(`1` = 2)
+> ##D out2 <- ReviewDuplicateSubmissions(
+> ##D   df,
+> ##D   id_col = "submissionId",
+> ##D   key_cols = "email",
+> ##D   compare_cols = c("submissionId", "email", "status"),
+> ##D   keep_map = keep_map,
+> ##D   prompt = FALSE,
+> ##D   quiet = TRUE
+> ##D )
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("ReviewDuplicateSubmissions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("StartAuditLog")
+> ### * StartAuditLog
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: StartAuditLog
+> ### Title: Start an audit log for FormIOr actions
+> ### Aliases: StartAuditLog
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D log_file <- tempfile(fileext = ".csv")
+> ##D StartAuditLog(log_file, overwrite = TRUE)
+> ##D 
+> ##D # Run some FormIOr steps (each will append a row when possible)
+> ##D flat <- FlattenSubmissions(FoodTypes)
+> ##D norm <- NormalizeColumnNames(flat, quiet = TRUE)
+> ##D 
+> ##D StopAuditLog()
+> ##D read.csv(log_file, stringsAsFactors = FALSE)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("StartAuditLog", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("StopAuditLog")
+> ### * StopAuditLog
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: StopAuditLog
+> ### Title: Stop audit logging for FormIOr
+> ### Aliases: StopAuditLog
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D StopAuditLog()
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("StopAuditLog", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("SummaryByField")
+> ### * SummaryByField
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: SummaryByField
+> ### Title: Summarize a single field in a FormIO response dataset
+> ### Aliases: SummaryByField
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc"))
+> ##D SummaryByField(flat, "age")
+> ##D SummaryByField(flat, "favorite_food", top_n = 5)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("SummaryByField", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("SuspiciousSurveyDemo")
+> ### * SuspiciousSurveyDemo
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: SuspiciousSurveyDemo
+> ### Title: Suspicious Survey Demo Dataset
+> ### Aliases: SuspiciousSurveyDemo
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data("SuspiciousSurveyDemo")
+> str(SuspiciousSurveyDemo)
+'data.frame':	262 obs. of  10 variables:
+ $ submissionId      : chr  "pre_001" "pre_002" "anon_repeat_009" "pre_003" ...
+ $ created           : POSIXct, format: "2026-01-01 08:03:00" "2026-01-01 08:06:00" ...
+ $ age               : num  32 52 52 45 32 33 29 47 27 29 ...
+ $ satisfaction_score: num  65.7 55.3 55.3 48.8 46 52.8 40.6 44.8 53.7 40.6 ...
+ $ region            : chr  "West" "West" "West" "North" ...
+ $ program           : chr  "C" "B" "B" "A" ...
+ $ consent           : chr  "Yes" "Yes" "Yes" "Yes" ...
+ $ comment           : chr  "needs support" "fine" "fine" "needs support" ...
+ $ phase_expected    : chr  "pre" "pre" "pre" "pre" ...
+ $ mostly_missing    : chr  NA NA NA NA ...
+> 
+> out <- FlagSuspiciousSubmissions(
++   SuspiciousSurveyDemo,
++   id_col = "submissionId",
++   time_col = "created",
++   cutoff_time = "2026-01-06 00:00:00",
++   group_action = "split_only",
++   quiet = TRUE
++ )
+> out$comparability$non_comparable
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("SuspiciousSurveyDemo", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("WriteAuditLog")
+> ### * WriteAuditLog
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: WriteAuditLog
+> ### Title: Write a simple audit log entry
+> ### Aliases: WriteAuditLog
+> 
+> ### ** Examples
+> 
+> df <- data.frame(a = 1:3)
+> log_path <- tempfile(fileext = ".csv")
+> WriteAuditLog(
++   "export",
++   details = "Exported survey data",
++   data = df,
++   file = log_path,
++   quiet = TRUE
++ )
+            timestamp action              details    user data_rows data_cols
+1 2026-02-19 10:39:32 export Exported survey data rodrigo         3         1
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("WriteAuditLog", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("findMultilines")
+> ### * findMultilines
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: findMultilines
+> ### Title: Identify columns with multiple distinct values per submission
+> ### Aliases: findMultilines
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D flat <- FlattenSubmissions(GetResponses(form_id = "123", api_key = "abc..."))
+> ##D 
+> ##D # See which columns have multiple values per submission
+> ##D multi_counts <- findMultilines(flat)
+> ##D 
+> ##D # Quick check: which columns ever have more than one distinct value?
+> ##D multi_counts |>
+> ##D   summarise(across(-1, ~ max(.x, na.rm = TRUE))) |>
+> ##D   pivot_longer(everything(), names_to = "column", values_to = "max_distinct") |>
+> ##D   filter(max_distinct > 1)
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("findMultilines", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.792 0.025 0.82 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

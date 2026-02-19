@@ -1,0 +1,223 @@
+---
+title: "FormIOr Cheat Sheet"
+output:
+  pdf_document:
+    latex_engine: xelatex
+geometry: margin=0.6in
+fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Core Workflow (Most Common Path)
+
+**Goal:** Download -> Flatten -> Clean -> Diagnose -> Export
+
+```{r core-diagram, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/core-workflow.svg")
+```
+
+**CHEF credentials (quick visual):** API key and Form ID are in the form's **Manage** page.  
+Form ID is the alphanumeric code after `=` in the Manage page URL.
+
+```{r chef-creds, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/API.png")
+knitr::include_graphics("assets/FormID.png")
+```
+
+Default CHEF base URL used by FormIOr:
+
+```
+https://submit.digital.gov.bc.ca/app/api/v1
+```
+
+Note (CHEF): Metadata/schema endpoints may live at `/api/v1`. FormIOr will
+automatically retry the alternate base for metadata/schema requests when needed.
+
+1. **Download responses**
+```r
+raw <- GetResponses(form_id = "YOUR_FORM_ID")
+```
+
+Tip: Many cleaning helpers return a list with `out$data` (the cleaned `data.frame`)
+and, when `return_flat = TRUE`, `out$flat` (an updated FlattenSubmissions-style
+list). In this cheat sheet we keep both:
+
+- `df` = the cleaned `data.frame` you typically analyze/export
+- `flat` = the updated FlattenSubmissions list (when you need `FlatResponses` + metadata)
+
+2. **Flatten nested responses**
+```r
+flat_raw <- FlattenSubmissions(raw)
+df <- flat_raw$FlatResponses
+```
+
+3. **Normalize column names (recommended)**
+```r
+norm <- NormalizeColumnNames(flat_raw, return_flat = TRUE)
+flat <- norm$flat
+df <- norm$data
+```
+
+4. **Deduplicate (optional)**
+```r
+dedup <- DeduplicateSubmissions(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- dedup$flat
+df <- dedup$data
+```
+
+5. **Resolve repeated answers (optional)**
+```r
+resolved <- ResolveRepeats(flat, id_col = "form_submissionid", return_flat = TRUE)
+flat <- resolved$flat
+df <- resolved$data
+```
+
+6. **Create a codebook**
+```r
+codebook <- MakeCodebook(df)
+# Optional: include labels from the form schema
+# form_meta <- GetFormMetadata(form_id = "your-form-id", api_key = "your-api-key")
+# codebook <- MakeCodebook(df, form = form_meta, include = "all")
+```
+
+7. **Run quick diagnostics**
+```r
+summary_age <- SummaryByField(df, field = "age")
+PlotHistogram(df, "age")
+PlotBarSummary(df, "program")
+```
+
+8. **Export to Excel**
+```r
+sheets <- list(
+  Raw_Flattened = flat_raw$FlatResponses,
+  Cleaned_Data = df,
+  Codebook = codebook,
+  Summary_Age = summary_age$summary
+)
+ExportToExcel(sheets, path = file.path(tempdir(), "FormIOr_output.xlsx"), overwrite = TRUE)
+```
+
+# Helpful Extras (Common Add-Ons)
+
+```{r helpers-diagram, echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/helpers-grid.svg")
+```
+
+**Audit logging (highly recommended)**
+```r
+StartAuditLog(file.path(tempdir(), "audit_log.csv"))
+WriteAuditLog("flatten", details = "Flattened submissions")
+StopAuditLog()
+```
+
+**Targeted adjustments**
+```r
+updates <- data.frame(
+  id = "sub_020",
+  column = "region",
+  value = "North",
+  stringsAsFactors = FALSE
+)
+
+adj <- AdjustSubmissions(
+  flat,
+  id_col = "form_submissionid",
+  delete_ids = c("sub_001", "sub_017"),
+  updates = updates,
+  return_flat = TRUE
+)
+flat <- adj$flat
+df <- adj$data
+```
+
+**Compact multi-select columns**
+```r
+comp <- CompactSelections(flat, return_flat = TRUE)
+flat <- comp$flat
+df <- comp$data
+# Optional: change the separator used to detect checkbox groups
+# flat <- CompactSelections(flat, sep = "-")
+```
+
+**Rename columns**
+```r
+RenameCols(flat)
+```
+
+**Cross-tab summaries**
+```r
+CrossTab(df, row = "region", col = "program")
+```
+
+**Response timelines**
+```r
+ResponseTimeline(df, date_col = "created")
+PlotResponseTimeline(df, date_col = "created")
+```
+
+**Pre/post comparability + suspicious responses**
+```r
+data("SuspiciousSurveyDemo", package = "FormIOr")
+
+risk <- FlagSuspiciousSubmissions(
+  SuspiciousSurveyDemo,
+  id_col = "submissionId",
+  time_col = "created",
+  cutoff_time = "2026-01-06 00:00:00",
+  group_action = "split_only",
+  action = "flag_only"
+)
+
+risk$comparability$non_comparable
+head(risk$flags)
+```
+
+# Wizard (Automated Workflow)
+
+```r
+out <- FormIOrWorkflow()
+```
+
+This will:
+- create an output folder
+- start or reuse an audit log
+- download, flatten, clean, diagnose, and export
+- save a plan so you can replay the workflow later
+
+# Quick Reference: Key Functions
+
+**Download**
+- `GetResponses()`
+- `GetSubmissions()`
+- `GetFormMetadata()`
+
+**Flatten & Clean**
+- `FlattenSubmissions()`
+- `NormalizeColumnNames()`
+- `DeduplicateSubmissions()`
+- `ResolveRepeats()`
+- `CompactSelections()`
+- `AdjustSubmissions()`
+
+**Diagnostics**
+- `MakeCodebook()`
+- `SummaryByField()`
+- `CrossTab()`
+- `PlotHistogram()`
+- `PlotBarSummary()`
+- `PlotWordcloud()`
+- `PlotResponseTimeline()`
+- `FlagSuspiciousSubmissions()`
+
+**Bundled Demo Data**
+- `SuspiciousSurveyDemo`
+
+**Export & Logging**
+- `ExportToExcel()`
+- `StartAuditLog()`
+- `WriteAuditLog()`
+- `StopAuditLog()`

@@ -1,0 +1,72 @@
+append_audit_log_entry
+                        Write a simple audit log entry
+apply_submission_updates
+                        Adjust submissions by ID (delete or edit
+                        specific values)
+AskCredentials          Ask for Form credentials
+assign_section_hierarchy
+                        Add Hierarchical Sections to FormIO Response
+                        Columns
+build_data_codebook     Create a codebook for a dataset
+build_field_dictionary
+                        Build a field dictionary for a form
+collapse_checkbox_selections
+                        Compact checkbox/multi-select columns into a
+                        single readable column
+collapse_repeated_values
+                        Resolve repeated answers into one row per
+                        submission
+compare_form_versions   Compare two versions of a form
+count_multivalue_fields
+                        Identify columns with multiple distinct values
+                        per submission
+deduplicate_submission_rows
+                        Deduplicate submissions by submission ID
+describe_form_schema    Describe a form in plain language
+detect_suspicious_submissions
+                        Flag suspicious submissions and enforce
+                        pre/post comparability checks
+export_results_to_excel
+                        Export data to Excel (or CSV if needed)
+fetch_form_metadata     Get metadata for a 'FormIO' form
+fetch_form_responses    Get responses submitted to a 'FormIO' form
+fetch_form_submissions
+                        Retrieve submission metadata for a form
+flatten_submission_records
+                        Flatten Submissions
+FoodTypes               Survey Responses Dataset
+is_audit_log_active     Check whether audit logging is active
+launch_formior_addin    Launch the FormIOr RStudio addin
+plot_categorical_summary
+                        Plot a bar chart for a categorical field
+plot_numeric_distribution
+                        Plot a histogram for a numeric field
+plot_response_timeline
+                        Plot a response timeline
+plot_word_cloud         Plot a wordcloud for a text field
+print.FlagSuspiciousSubmissionsResult
+                        Print method for detect_suspicious_submissions
+                        results
+rename_columns_from_dictionary
+                        Rename columns from a flattened FormIO dataset
+resolve_duplicate_values
+                        Clean duplicated rows caused by multi-value
+                        fields in flattened FormIO data
+review_duplicate_rows   Interactively review and resolve duplicate
+                        submissions
+run_form_processing_workflow
+                        Guided end-to-end workflow (download -> clean
+                        -> report -> export)
+standardize_column_names
+                        Normalize column names into a clean, readable
+                        format
+start_audit_log         Start an audit log for FormIOr actions
+stop_audit_log          Stop audit logging for FormIOr
+summarize_field_distribution
+                        Summarize a single field in a FormIO response
+                        dataset
+summarize_response_timeline
+                        Summarize responses over time
+SuspiciousSurveyDemo    Suspicious Survey Demo Dataset
+tabulate_field_by_group
+                        Cross-tabulate two fields

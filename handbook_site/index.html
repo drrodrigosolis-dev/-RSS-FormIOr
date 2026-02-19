@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.9">
+<title></title>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+body, .abstract, code, .footnotes, footer, #refs, .caption { font-size: .9em; }
+li li { font-size: .95em; }
+ul:has(li > input[type="checkbox"]) { list-style: none; padding-left: 1em; }
+*, :before, :after { box-sizing: border-box; }
+a { color: steelblue; }
+pre, img { max-width: 100%; }
+pre { white-space: pre-wrap; word-break: break-word; }
+pre code { display: block; padding: 1em; overflow-x: auto; }
+code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
+:not(pre, th) > code, code[class], div > .caption { background: #f8f8f8; }
+pre > code:is(:not([class]), .language-plain, .language-none, .plain), .box, .figure, .table { background: inherit; border: 1px solid #eee; }
+pre > code {
+  &.message { border-color: #9eeaf9; }
+  &.warning { background: #fff3cd; border-color: #fff3cd; }
+  &.error { background: #f8d7da; border-color: #f8d7da; }
+}
+.fenced-chunk { border-left: 1px solid #666; }
+.code-fence {
+  opacity: .4;
+  border: 1px dashed #666;
+  border-left: 2px solid;
+  &:hover { opacity: inherit; }
+}
+.box, .figure, .table, table { margin: 1em auto; }
+div > .caption { padding: 1px 1em; }
+.figure { p:has(img, svg), pre:has(svg) { text-align: center; } }
+.flex-col { display: flex; justify-content: space-between; }
+table {
+  &:only-child:not(.table > *) { margin: auto; }
+  th, td { padding: 5px; font-variant-numeric: tabular-nums; }
+  thead, tfoot, tr:nth-child(even) { background: whitesmoke; }
+  thead th { border-bottom: 1px solid #ddd; }
+  &:not(.datatable-table) {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+  }
+}
+blockquote {
+  color: #666;
+  margin: 0;
+  padding: 1px 1em;
+  border-left: .5em solid #eee;
+}
+hr, .footnotes::before { border: 1px dashed #ddd; }
+.frontmatter { text-align: center; }
+#TOC {
+  a { text-decoration: none; }
+  ul { list-style: none; padding-left: 1em; }
+  & > ul { padding: 0; }
+  ul ul { border-left: 1px solid lightsteelblue; }
+}
+.body h2 { border-bottom: 1px solid #666; }
+.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
+.main-number::after { content: "."; }
+span[class^="ref-number-"] { font-weight: bold; }
+.ref-number-fig::after, .ref-number-tab::after { content: ":"; }
+.cross-ref-chp::before { content: "Chapter "; }
+.cross-ref-sec::before { content: "Section "; }
+.cross-ref-fig::before, .ref-number-fig::before { content: "Figure "; }
+.cross-ref-tab::before, .ref-number-tab::before { content: "Table "; }
+.cross-ref-eqn::before, .MathJax_ref:has(mjx-mtext > mjx-c + mjx-c)::before { content: "Equation "; }
+.abstract, #refs {
+  &::before { display: block; margin: 1em auto; font-weight: bold; }
+}
+.abstract::before { content: "Abstract"; text-align: center; }
+#refs::before { content: "Bibliography"; font-size: 1.5em; }
+.ref-paren-open::before { content: "("; }
+.ref-paren-close::after { content: ")"; }
+.ref-semicolon::after { content: "; "; }
+.ref-and::after { content: " and "; }
+.ref-et-al::after { content: " et al."; font-style: italic; }
+.footnote-ref a {
+  &::before { content: "["; }
+  &::after { content: "]"; }
+}
+section.footnotes {
+  margin-top: 2em;
+  &::before { content: ""; display: block; max-width: 20em; }
+}
+.fade {
+  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
+  opacity: 0.6;
+}
+
+@media print {
+  body { max-width: 100%; }
+  tr, img { break-inside: avoid; }
+}
+@media only screen and (min-width: 992px) {
+  body:not(.pagesjs) pre:has(.line-numbers):not(:hover) { white-space: pre; }
+}
+</style>
+</head>
+<body>
+<div class="frontmatter">
+</div>
+<div class="body">
+<h1 id="chp:formior-handbook-interactive">FormIOr Handbook (Interactive)</h1>
+<p>Last updated: 2026-02-05</p>
+<p>Welcome to the FormIOr Handbook. This is an interactive, multi-page manual.
+Use the links below to jump to any section. Each “page” is a separate Markdown
+file so it is easy to navigate and easy to keep expanding.</p>
+<p>If you are new to FormIOr, start with Part I and Part II. If you want the
+shortest path to results, go straight to the Wizard section (Part III).</p>
+<p>Maintained by <strong>Rodrigo Solis-Sosa, PhD</strong> (Human Dimensions of Wildlife Specialist,
+BC Ministry of Water, Land and Resource Stewardship).</p>
+<div style="border:1px solid #d0d7de; border-radius:12px; padding:12px 14px; background:#f8f9fb; margin:12px 0;">
+  <strong>CHEF credentials (quick link)</strong><br/>
+  Need your API key or Form ID? See the step‑by‑step page with screenshots:<br/>
+  <a href="rationale/05-api-formid.html">How to Obtain the API Key and Form ID (CHEF)</a>
+</div>
+<h2 id="sec:part-i-rationale-and-introduction">Part I. Rationale and Introduction</h2>
+<ul>
+<li><a href="rationale/01-why-formior.html">Page 1: Why FormIOr Exists</a></li>
+<li><a href="rationale/02-core-concepts.html">Page 2: Core Concepts and Data Shapes</a></li>
+<li><a href="rationale/03-getting-started.html">Page 3: Getting Started in R</a></li>
+<li><a href="rationale/04-security-credentials.html">Page 4: Security and Credentials</a></li>
+<li><a href="rationale/05-api-formid.html">Page 5: How to Obtain the API Key and Form ID (CHEF)</a></li>
+</ul>
+<h2 id="sec:part-ii-regular-workflows-manual-non-wizard">Part II. Regular Workflows (Manual, Non-Wizard)</h2>
+<ul>
+<li><a href="workflows/05-standard-workflow.html">Page 5: Standard Workflow (Download -&gt; Clean -&gt; Export)</a></li>
+<li><a href="workflows/06-manual-diagnostics.html">Page 6: Manual Diagnostics (Codebook + Summaries + Plots)</a></li>
+<li><a href="workflows/07-targeted-adjustments.html">Page 7: Targeted Adjustments</a></li>
+<li><a href="workflows/08-repeatable-manual.html">Page 8: Repeatable Manual Workflows</a></li>
+</ul>
+<h2 id="sec:part-iii-automated-workflow-wizard">Part III. Automated Workflow (Wizard)</h2>
+<ul>
+<li><a href="wizard/09-wizard-overview.html">Page 9: Wizard Overview</a></li>
+<li><a href="wizard/10-step-output-folder.html">Page 10: Step 1 - Output Folder and Files</a></li>
+<li><a href="wizard/11-step-audit-logging.html">Page 11: Step 2 - Audit Logging</a></li>
+<li><a href="wizard/12-step-download.html">Page 12: Step 3 - Download Responses</a></li>
+<li><a href="wizard/13-step-flattening.html">Page 13: Step 4 - Flattening</a></li>
+<li><a href="wizard/14-step-id-selection.html">Page 14: Step 5 - Submission ID Selection</a></li>
+<li><a href="wizard/15-step-normalize-names.html">Page 15: Step 6 - Normalize Names</a></li>
+<li><a href="wizard/16-step-deduplicate.html">Page 16: Step 7 - Deduplicate Submissions</a></li>
+<li><a href="wizard/17-step-resolve-repeats.html">Page 17: Step 8 - Resolve Repeated Answers</a></li>
+<li><a href="wizard/18-step-compact.html">Page 18: Step 9 - Compact Multi-Select Columns</a></li>
+<li><a href="wizard/19-step-adjustments.html">Page 19: Step 10 - Targeted Adjustments</a></li>
+<li><a href="wizard/20-step-codebook.html">Page 20: Step 11 - Codebook</a></li>
+<li><a href="wizard/21-step-plots.html">Page 21: Step 12 - Plots</a></li>
+<li><a href="wizard/22-step-export.html">Page 22: Step 13 - Export</a></li>
+<li><a href="wizard/23-step-plan.html">Page 23: Step 14 - Save and Replay Your Plan</a></li>
+</ul>
+<h2 id="sec:part-iv-standalone-functions-one-page-per-function">Part IV. Standalone Functions (One Page Per Function)</h2>
+<ul>
+<li><a href="functions/index.html">Function Index</a></li>
+<li><a href="functions/reference.html">Function Reference (Quick Lookup)</a></li>
+</ul>
+<h2 id="sec:part-v-technical-details">Part V. Technical Details</h2>
+<ul>
+<li><a href="technical/data-shapes.html">Data Shapes and Types</a></li>
+<li><a href="technical/audit-log-schema.html">Audit Log Schema</a></li>
+<li><a href="technical/naming-conventions.html">Naming Conventions</a></li>
+<li><a href="technical/export-behavior.html">Export Behavior and Dependencies</a></li>
+<li><a href="technical/plotting-errors.html">Plotting Error Handling</a></li>
+<li><a href="technical/wizard-plans.html">Wizard Plans (JSON/RDS)</a></li>
+<li><a href="technical/render-handbook.html">Rendering the Handbook</a></li>
+</ul>
+<h2 id="sec:part-vi-common-cases-and-solutions">Part VI. Common Cases and Solutions</h2>
+<ul>
+<li><a href="common/24-common-cases.html">Common Cases and How to Solve Them</a></li>
+</ul>
+<h2 id="sec:part-vii-tips-and-things-to-look-for">Part VII. Tips and Things to Look For</h2>
+<ul>
+<li><a href="tips/tips-and-checks.html">Tips and Quality Checks</a></li>
+</ul>
+<h2 id="sec:part-viii-troubleshooting-and-faq">Part VIII. Troubleshooting and FAQ</h2>
+<ul>
+<li><a href="troubleshooting/faq.html">Troubleshooting and FAQ</a></li>
+</ul>
+<h2 id="sec:part-ix-future-work-and-roadmap">Part IX. Future Work and Roadmap</h2>
+<ul>
+<li><a href="roadmap/future-work.html">Future Work</a></li>
+</ul>
+<h2 id="sec:part-x-glossary">Part X. Glossary</h2>
+<ul>
+<li><a href="glossary/glossary.html">Glossary</a></li>
+</ul>
+<h2 id="sec:quick-reference">Quick Reference</h2>
+<ul>
+<li><a href="formior-cheatsheet.html">Cheat Sheet (Markdown)</a></li>
+<li><a href="formior-cheatsheet.html">Cheat Sheet (HTML)</a></li>
+</ul>
+<hr />
+<p>Navigation</p>
+<ul>
+<li>Start here: <a href="rationale/01-why-formior.html">Why FormIOr Exists</a></li>
+<li>Jump to: <a href="wizard/09-wizard-overview.html">Wizard Overview</a></li>
+<li>Jump to: <a href="functions/index.html">Function Index</a></li>
+</ul>
+</div>
+</body>
+</html>

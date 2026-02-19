@@ -1,0 +1,53 @@
+AddSections             Add Hierarchical Sections to FormIO Response
+                        Columns
+AdjustSubmissions       Adjust submissions by ID (delete or edit
+                        specific values)
+AskCredentials          Ask for Form credentials
+CompactSelections       Compact checkbox/multi-select columns into a
+                        single readable column
+CompareFormVersions     Compare two versions of a form
+CrossTab                Cross-tabulate two fields
+DeduplicateSubmissions
+                        Deduplicate submissions by submission ID
+DescribeForm            Describe a form in plain language
+ExportToExcel           Export data to Excel (or CSV if needed)
+FieldDictionary         Build a field dictionary for a form
+findMultilines          Identify columns with multiple distinct values
+                        per submission
+FixDups                 Clean duplicated rows caused by multi-value
+                        fields in flattened FormIO data
+FlagSuspiciousSubmissions
+                        Flag suspicious submissions and enforce
+                        pre/post comparability checks
+FlattenSubmissions      Flatten Submissions
+FoodTypes               Survey Responses Dataset
+FormIOrAddin            Launch the FormIOr RStudio addin
+FormIOrWorkflow         Guided end-to-end workflow (download -> clean
+                        -> report -> export)
+GetFormMetadata         Get metadata for a 'FormIO' form
+GetResponses            Get responses submitted to a 'FormIO' form
+GetSubmissions          Retrieve submission metadata for a form
+IsAuditLogActive        Check whether audit logging is active
+MakeCodebook            Create a codebook for a dataset
+NormalizeColumnNames    Normalize column names into a clean, readable
+                        format
+PlotBarSummary          Plot a bar chart for a categorical field
+PlotHistogram           Plot a histogram for a numeric field
+PlotResponseTimeline    Plot a response timeline
+PlotWordcloud           Plot a wordcloud for a text field
+print.FlagSuspiciousSubmissionsResult
+                        Print method for FlagSuspiciousSubmissions
+                        results
+RenameCols              Rename columns from a flattened FormIO dataset
+ResolveRepeats          Resolve repeated answers into one row per
+                        submission
+ResponseTimeline        Summarize responses over time
+ReviewDuplicateSubmissions
+                        Interactively review and resolve duplicate
+                        submissions
+StartAuditLog           Start an audit log for FormIOr actions
+StopAuditLog            Stop audit logging for FormIOr
+SummaryByField          Summarize a single field in a FormIO response
+                        dataset
+SuspiciousSurveyDemo    Suspicious Survey Demo Dataset
+WriteAuditLog           Write a simple audit log entry

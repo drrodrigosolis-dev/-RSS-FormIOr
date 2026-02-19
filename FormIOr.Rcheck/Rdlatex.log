@@ -1,0 +1,770 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX ..............
+Creating pdf output from LaTeX ...
+
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-08-13>
+(./Rd2.tex
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file Rd2.aux.
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd)
+No file Rd2.toc.
+
+[1{/Users/rodrigo/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Overfull \hbox (17.76704pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 A data frame (pos-si-bly with nested list-columns), or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses
+
+Overfull \hbox (38.54942pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 (a flat-tened data frame) or []\T1/zi4/m/n/10 submission_data []\T1/ptm/m/n/10 (from []\T1/zi4/m/n/10 GetResponses() []\T1/ptm/m/n/10 with []\T1/zi4/m/n/10 content.only
+
+[2]
+[3]
+Overfull \hbox (1.53908pt too wide) in paragraph at lines 170--171
+[]\T1/ptm/m/n/10 A data.frame with columns []\T1/zi4/m/n/10 submissionId[]\T1/ptm/m/n/10 /[]\T1/zi4/m/n/10 submission_id[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 column[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 value 
+
+[4]
+Overfull \hbox (14.23488pt too wide) in paragraph at lines 227--227
+ []  \T1/zi4/m/n/9 updates = data.frame(id = "c", column = "status", value = "review", stringsAsFactors = FALSE),[] 
+
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+Overfull \hbox (2.80742pt too wide) in paragraph at lines 958--961
+\T1/ptm/m/n/10 bines them into a sin-gle comma-separated col-umn. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (11.39984pt too wide) in paragraph at lines 971--971
+ []  \T1/zi4/m/n/10 yes_values = c(TRUE, "TRUE", "True", "true", "Yes", "YES", "yes", "Y", "y", 1, "1"),[] 
+
+Overfull \hbox (24.72977pt too wide) in paragraph at lines 972--972
+ []  \T1/zi4/m/n/10 no_values = c(FALSE, "FALSE", "False", "false", "No", "NO", "no", "N", "n", 0, "0", "",[] 
+
+[19]
+Overfull \hbox (9.75021pt too wide) in paragraph at lines 1044--1044
+ []  \T1/zi4/m/n/10 compare_cols = c("label", "type", "required", "description", "default", "options",[] 
+
+[20]
+[21]
+[22]
+[23]
+[24]
+Overfull \hbox (5.60802pt too wide) in paragraph at lines 1352--1355
+\T1/ptm/m/n/10 for non-technical users who want a quick sum-mary. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (17.5288pt too wide) in paragraph at lines 1373--1375
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , in-clude a field dic-tio-nary in the out-put (from [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ). 
+
+[25]
+Overfull \hbox (19.1968pt too wide) in paragraph at lines 1399--1403
+\T1/ptm/m/n/10 this func-tion will au-to-mat-i-cally fetch the form schema us-ing stored cre-den-tials (from [][][]\T1/zi4/m/n/10 AskCredentials()[][][]
+
+[26]
+[27]
+Overfull \hbox (36.52786pt too wide) in paragraph at lines 1536--1538
+[]\T1/ptm/m/n/10 A data.frame, list of data.frames, or list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+[28]
+[29]
+[30]
+[31]
+Overfull \hbox (23.55908pt too wide) in paragraph at lines 1712--1714
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , ex-pands FormIO sur-vey com-po-nents (e.g., []\T1/zi4/m/n/10 simplesurveyadvanced[]\T1/ptm/m/n/10 )
+
+[32]
+Overfull \hbox (20.97855pt too wide) in paragraph at lines 1813--1815
+[]\T1/ptm/m/n/10 A list re-turned by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][][]\T1/ptm/m/n/10 , con-tain-ing at min-i-mum \T1/zi4/m/n/10 $FlatResponses
+
+Overfull \hbox (0.54732pt too wide) in paragraph at lines 1822--1825
+[]\T1/ptm/m/n/10 This func-tion is typ-i-cally used be-fore [][][]\T1/zi4/m/n/10 FixDups()[][][] []\T1/ptm/m/n/10 to help non-technical users iden-tify which columns
+
+[33]
+[34]
+Underfull \hbox (badness 1270) in paragraph at lines 1884--1884
+[]\T1/ptm/m/it/10 Clean du-pli-cated rows caused by multi-value fields in flat-tened
+
+[35]
+Underfull \hbox (badness 1546) in paragraph at lines 1981--1981
+[]\T1/ptm/m/it/10 Flag sus-pi-cious sub-mis-sions and en-force pre/post com-pa-ra-bil-ity
+
+[36]
+Overfull \hbox (22.38083pt too wide) in paragraph at lines 2052--2054
+[]\T1/ptm/m/n/10 One of []\T1/zi4/m/n/10 "flag_only"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_high_risk"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_confirmed_duplicates"[]\T1/ptm/m/n/10 . 
+
+[37]
+[38]
+[39]
+Overfull \hbox (0.76538pt too wide) in paragraph at lines 2241--2243
+[]\T1/ptm/m/n/10 Based on stan-dard struc-ture from BC Pub-lic Ser-vice FormIO CHEF struc-ture, pro-cessed and cleaned
+
+[40]
+Overfull \hbox (50.81891pt too wide) in paragraph at lines 2299--2301
+[]\T1/ptm/m/n/10 Character. API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (1.42859pt too wide) in paragraph at lines 2308--2312
+[]\T1/ptm/m/n/10 Folder to write out-put files into. If []\T1/zi4/m/n/10 NULL[]\T1/ptm/m/n/10 , a new folder is cre-ated un-der []\T1/zi4/m/n/10 tempdir()
+
+[41]
+Overfull \hbox (9.47954pt too wide) in paragraph at lines 2358--2361
+[]\T1/ptm/m/n/10 The work-flow also saves your wiz-ard choices to []\T1/zi4/m/n/10 workflow_plan.rds []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 workflow_plan.json
+
+[42]
+[43]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2499--2501
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[44]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2552--2554
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[45]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2614--2616
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[46]
+[47]
+[48]
+[49]
+[50]
+Overfull \hbox (16.17767pt too wide) in paragraph at lines 2878--2880
+[]\T1/ptm/m/n/10 This is most use-ful in scripts when you want to con-di-tion-ally add a man-ual note us-ing [][][]\T1/zi4/m/n/10 WriteAuditLog()[][][]
+
+[51]
+[52]
+[53]
+Overfull \hbox (18.6284pt too wide) in paragraph at lines 2987--2989
+[]\T1/ptm/m/n/10 A data.frame of re-sponses, or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (11.28764pt too wide) in paragraph at lines 2990--2992
+[]\T1/ptm/m/n/10 Optional form schema, JSON string, or meta-data ob-ject (see [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ).
+
+[54]
+[55]
+[56]
+[57]
+[58]
+[59]
+[60]
+[61]
+[62]
+[63]
+[64]
+[65]
+[66]
+Overfull \hbox (0.1385pt too wide) in paragraph at lines 3704--3707
+[]\T1/ptm/m/n/10 Convenience wrap-per around [][][]\T1/zi4/m/n/10 ResponseTimeline()[][][] []\T1/ptm/m/n/10 that draws a sim-ple line chart us-ing base graph-
+
+[67]
+[68]
+[69] (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[70{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[71]
+Overfull \hbox (7.60999pt too wide) in paragraph at lines 3958--3960
+[]\T1/ptm/m/n/10 List from [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][] []\T1/ptm/m/n/10 con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 ColumnNames[]\T1/ptm/m/n/10 . 
+
+[72]
+[73]
+[74]
+[75]
+Overfull \hbox (21.41006pt too wide) in paragraph at lines 4190--4190
+ []  \T1/zi4/m/n/10 strategy = c("auto", "concat", "first", "last", "sum", "mean", "count", "count_yes"),[] 
+
+Overfull \hbox (2.0771pt too wide) in paragraph at lines 4220--4225
+\T1/ptm/m/n/10 or nested data-frame columns even af-ter flat-ten-ing. These val-ues are con-verted to read-able JSON/text
+
+[76]
+[77]
+[78]
+Overfull \hbox (9.25803pt too wide) in paragraph at lines 4357--4363
+[]\T1/ptm/m/n/10 Optional. Columns used to de-fine "du-pli-cate sub-mis-sions" (for ex-am-ple []\T1/zi4/m/n/10 username[]\T1/ptm/m/n/10 ,
+
+[79]
+Overfull \hbox (29.25635pt too wide) in paragraph at lines 4426--4426
+ []  \T1/zi4/m/n/9 email = c("x@example.com", "x@example.com", "x@example.com", "x@example.com", "x@example.com"),[] 
+
+[80{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[81]
+[82]
+[83]
+Overfull \hbox (43.5373pt too wide) in paragraph at lines 4675--4679
+[]\T1/ptm/m/n/10 Designed for non-technical users: it ac-cepts ei-ther a data frame or the list pro-duced by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][]
+
+[84]
+[85]
+[86]
+[87]
+[88]
+[89]
+[90]
+[91]
+[92]
+No file Rd2.ind.
+
+[93] (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.base::print\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.wordcloud::wordcloud\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.hist} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.barplot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stats::p.adjust\(\)} has been referenced but does not exist, replaced by a fixed one
+
+</Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (93 pages, 244720 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (355 entries accepted, 0 rejected).
+Sorting entries......done (3135 comparisons).
+Generating output file Rd2.ind....done (387 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-08-13>
+(./Rd2.tex
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.aux) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.out) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.out) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.toc
+[1{/Users/rodrigo/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+[2]
+[3])
+[4]
+Overfull \hbox (17.76704pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 A data frame (pos-si-bly with nested list-columns), or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses
+
+Overfull \hbox (38.54942pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 (a flat-tened data frame) or []\T1/zi4/m/n/10 submission_data []\T1/ptm/m/n/10 (from []\T1/zi4/m/n/10 GetResponses() []\T1/ptm/m/n/10 with []\T1/zi4/m/n/10 content.only
+
+[5]
+[6]
+Overfull \hbox (1.53908pt too wide) in paragraph at lines 170--171
+[]\T1/ptm/m/n/10 A data.frame with columns []\T1/zi4/m/n/10 submissionId[]\T1/ptm/m/n/10 /[]\T1/zi4/m/n/10 submission_id[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 column[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 value 
+
+Overfull \hbox (14.23488pt too wide) in paragraph at lines 227--227
+ []  \T1/zi4/m/n/9 updates = data.frame(id = "c", column = "status", value = "review", stringsAsFactors = FALSE),[] 
+
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+Overfull \hbox (2.80742pt too wide) in paragraph at lines 958--961
+\T1/ptm/m/n/10 bines them into a sin-gle comma-separated col-umn. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (11.39984pt too wide) in paragraph at lines 971--971
+ []  \T1/zi4/m/n/10 yes_values = c(TRUE, "TRUE", "True", "true", "Yes", "YES", "yes", "Y", "y", 1, "1"),[] 
+
+Overfull \hbox (24.72977pt too wide) in paragraph at lines 972--972
+ []  \T1/zi4/m/n/10 no_values = c(FALSE, "FALSE", "False", "false", "No", "NO", "no", "N", "n", 0, "0", "",[] 
+
+[22]
+Overfull \hbox (9.75021pt too wide) in paragraph at lines 1044--1044
+ []  \T1/zi4/m/n/10 compare_cols = c("label", "type", "required", "description", "default", "options",[] 
+
+[23]
+[24]
+[25]
+[26]
+[27]
+Overfull \hbox (5.60802pt too wide) in paragraph at lines 1352--1355
+\T1/ptm/m/n/10 for non-technical users who want a quick sum-mary. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (17.5288pt too wide) in paragraph at lines 1373--1375
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , in-clude a field dic-tio-nary in the out-put (from [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ). 
+
+[28]
+Overfull \hbox (19.1968pt too wide) in paragraph at lines 1399--1403
+\T1/ptm/m/n/10 this func-tion will au-to-mat-i-cally fetch the form schema us-ing stored cre-den-tials (from [][][]\T1/zi4/m/n/10 AskCredentials()[][][]
+
+[29]
+[30]
+Overfull \hbox (36.52786pt too wide) in paragraph at lines 1536--1538
+[]\T1/ptm/m/n/10 A data.frame, list of data.frames, or list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+[31]
+[32]
+[33]
+[34]
+Overfull \hbox (23.55908pt too wide) in paragraph at lines 1712--1714
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , ex-pands FormIO sur-vey com-po-nents (e.g., []\T1/zi4/m/n/10 simplesurveyadvanced[]\T1/ptm/m/n/10 )
+
+[35]
+Overfull \hbox (20.97855pt too wide) in paragraph at lines 1813--1815
+[]\T1/ptm/m/n/10 A list re-turned by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][][]\T1/ptm/m/n/10 , con-tain-ing at min-i-mum \T1/zi4/m/n/10 $FlatResponses
+
+Overfull \hbox (0.54732pt too wide) in paragraph at lines 1822--1825
+[]\T1/ptm/m/n/10 This func-tion is typ-i-cally used be-fore [][][]\T1/zi4/m/n/10 FixDups()[][][] []\T1/ptm/m/n/10 to help non-technical users iden-tify which columns
+
+[36]
+[37]
+Underfull \hbox (badness 1270) in paragraph at lines 1884--1884
+[]\T1/ptm/m/it/10 Clean du-pli-cated rows caused by multi-value fields in flat-tened
+
+[38]
+Underfull \hbox (badness 1546) in paragraph at lines 1981--1981
+[]\T1/ptm/m/it/10 Flag sus-pi-cious sub-mis-sions and en-force pre/post com-pa-ra-bil-ity
+
+[39]
+Overfull \hbox (22.38083pt too wide) in paragraph at lines 2052--2054
+[]\T1/ptm/m/n/10 One of []\T1/zi4/m/n/10 "flag_only"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_high_risk"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_confirmed_duplicates"[]\T1/ptm/m/n/10 . 
+
+[40]
+[41]
+[42]
+Overfull \hbox (0.76538pt too wide) in paragraph at lines 2241--2243
+[]\T1/ptm/m/n/10 Based on stan-dard struc-ture from BC Pub-lic Ser-vice FormIO CHEF struc-ture, pro-cessed and cleaned
+
+[43]
+Overfull \hbox (50.81891pt too wide) in paragraph at lines 2299--2301
+[]\T1/ptm/m/n/10 Character. API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (1.42859pt too wide) in paragraph at lines 2308--2312
+[]\T1/ptm/m/n/10 Folder to write out-put files into. If []\T1/zi4/m/n/10 NULL[]\T1/ptm/m/n/10 , a new folder is cre-ated un-der []\T1/zi4/m/n/10 tempdir()
+
+[44]
+Overfull \hbox (9.47954pt too wide) in paragraph at lines 2358--2361
+[]\T1/ptm/m/n/10 The work-flow also saves your wiz-ard choices to []\T1/zi4/m/n/10 workflow_plan.rds []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 workflow_plan.json
+
+[45]
+[46]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2499--2501
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[47]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2552--2554
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[48]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2614--2616
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[49]
+[50]
+[51]
+[52]
+[53]
+Overfull \hbox (16.17767pt too wide) in paragraph at lines 2878--2880
+[]\T1/ptm/m/n/10 This is most use-ful in scripts when you want to con-di-tion-ally add a man-ual note us-ing [][][]\T1/zi4/m/n/10 WriteAuditLog()[][][]
+
+[54]
+[55]
+[56]
+Overfull \hbox (18.6284pt too wide) in paragraph at lines 2987--2989
+[]\T1/ptm/m/n/10 A data.frame of re-sponses, or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (11.28764pt too wide) in paragraph at lines 2990--2992
+[]\T1/ptm/m/n/10 Optional form schema, JSON string, or meta-data ob-ject (see [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ).
+
+[57]
+[58]
+[59]
+[60]
+[61]
+[62]
+[63]
+[64]
+[65]
+[66]
+[67]
+[68]
+[69]
+Overfull \hbox (0.1385pt too wide) in paragraph at lines 3704--3707
+[]\T1/ptm/m/n/10 Convenience wrap-per around [][][]\T1/zi4/m/n/10 ResponseTimeline()[][][] []\T1/ptm/m/n/10 that draws a sim-ple line chart us-ing base graph-
+
+[70]
+[71]
+[72] (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[73{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[74]
+Overfull \hbox (7.60999pt too wide) in paragraph at lines 3958--3960
+[]\T1/ptm/m/n/10 List from [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][] []\T1/ptm/m/n/10 con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 ColumnNames[]\T1/ptm/m/n/10 . 
+
+[75]
+[76]
+[77]
+[78]
+Overfull \hbox (21.41006pt too wide) in paragraph at lines 4190--4190
+ []  \T1/zi4/m/n/10 strategy = c("auto", "concat", "first", "last", "sum", "mean", "count", "count_yes"),[] 
+
+Overfull \hbox (2.0771pt too wide) in paragraph at lines 4220--4225
+\T1/ptm/m/n/10 or nested data-frame columns even af-ter flat-ten-ing. These val-ues are con-verted to read-able JSON/text
+
+[79]
+[80]
+[81]
+Overfull \hbox (9.25803pt too wide) in paragraph at lines 4357--4363
+[]\T1/ptm/m/n/10 Optional. Columns used to de-fine "du-pli-cate sub-mis-sions" (for ex-am-ple []\T1/zi4/m/n/10 username[]\T1/ptm/m/n/10 ,
+
+[82]
+Overfull \hbox (29.25635pt too wide) in paragraph at lines 4426--4426
+ []  \T1/zi4/m/n/9 email = c("x@example.com", "x@example.com", "x@example.com", "x@example.com", "x@example.com"),[] 
+
+[83{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[84]
+[85]
+[86]
+Overfull \hbox (43.5373pt too wide) in paragraph at lines 4675--4679
+[]\T1/ptm/m/n/10 Designed for non-technical users: it ac-cepts ei-ther a data frame or the list pro-duced by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][]
+
+[87]
+[88]
+[89]
+[90]
+[91]
+[92]
+[93]
+[94]
+[95] (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.ind
+[96]
+
+[97]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 225.
+
+
+[98]
+
+[99]
+
+[100]) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.base::print\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.wordcloud::wordcloud\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.hist} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.barplot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stats::p.adjust\(\)} has been referenced but does not exist, replaced by a fixed one
+
+</Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (100 pages, 288130 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (355 entries accepted, 0 rejected).
+Sorting entries......done (3135 comparisons).
+Generating output file Rd2.ind....done (388 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-08-13>
+(./Rd2.tex
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/eucal.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.aux) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.out) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.out) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.toc
+[1{/Users/rodrigo/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+[2]
+[3])
+[4]
+Overfull \hbox (17.76704pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 A data frame (pos-si-bly with nested list-columns), or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses
+
+Overfull \hbox (38.54942pt too wide) in paragraph at lines 100--101
+[]\T1/ptm/m/n/10 (a flat-tened data frame) or []\T1/zi4/m/n/10 submission_data []\T1/ptm/m/n/10 (from []\T1/zi4/m/n/10 GetResponses() []\T1/ptm/m/n/10 with []\T1/zi4/m/n/10 content.only
+
+[5]
+[6]
+Overfull \hbox (1.53908pt too wide) in paragraph at lines 170--171
+[]\T1/ptm/m/n/10 A data.frame with columns []\T1/zi4/m/n/10 submissionId[]\T1/ptm/m/n/10 /[]\T1/zi4/m/n/10 submission_id[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 column[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 value 
+
+Overfull \hbox (14.23488pt too wide) in paragraph at lines 227--227
+ []  \T1/zi4/m/n/9 updates = data.frame(id = "c", column = "status", value = "review", stringsAsFactors = FALSE),[] 
+
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+Overfull \hbox (2.80742pt too wide) in paragraph at lines 958--961
+\T1/ptm/m/n/10 bines them into a sin-gle comma-separated col-umn. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (11.39984pt too wide) in paragraph at lines 971--971
+ []  \T1/zi4/m/n/10 yes_values = c(TRUE, "TRUE", "True", "true", "Yes", "YES", "yes", "Y", "y", 1, "1"),[] 
+
+Overfull \hbox (24.72977pt too wide) in paragraph at lines 972--972
+ []  \T1/zi4/m/n/10 no_values = c(FALSE, "FALSE", "False", "false", "No", "NO", "no", "N", "n", 0, "0", "",[] 
+
+[22]
+Overfull \hbox (9.75021pt too wide) in paragraph at lines 1044--1044
+ []  \T1/zi4/m/n/10 compare_cols = c("label", "type", "required", "description", "default", "options",[] 
+
+[23]
+[24]
+[25]
+[26]
+[27]
+Overfull \hbox (5.60802pt too wide) in paragraph at lines 1352--1355
+\T1/ptm/m/n/10 for non-technical users who want a quick sum-mary. If au-dit log-ging is ac-tive (see [][][]\T1/zi4/m/n/10 StartAuditLog()[][][][]\T1/ptm/m/n/10 ),
+
+Overfull \hbox (17.5288pt too wide) in paragraph at lines 1373--1375
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , in-clude a field dic-tio-nary in the out-put (from [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ). 
+
+[28]
+Overfull \hbox (19.1968pt too wide) in paragraph at lines 1399--1403
+\T1/ptm/m/n/10 this func-tion will au-to-mat-i-cally fetch the form schema us-ing stored cre-den-tials (from [][][]\T1/zi4/m/n/10 AskCredentials()[][][]
+
+[29]
+[30]
+Overfull \hbox (36.52786pt too wide) in paragraph at lines 1536--1538
+[]\T1/ptm/m/n/10 A data.frame, list of data.frames, or list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+[31]
+[32]
+[33]
+[34]
+Overfull \hbox (23.55908pt too wide) in paragraph at lines 1712--1714
+[]\T1/ptm/m/n/10 Logical. If []\T1/zi4/m/n/10 TRUE[]\T1/ptm/m/n/10 , ex-pands FormIO sur-vey com-po-nents (e.g., []\T1/zi4/m/n/10 simplesurveyadvanced[]\T1/ptm/m/n/10 )
+
+[35]
+Overfull \hbox (20.97855pt too wide) in paragraph at lines 1813--1815
+[]\T1/ptm/m/n/10 A list re-turned by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][][]\T1/ptm/m/n/10 , con-tain-ing at min-i-mum \T1/zi4/m/n/10 $FlatResponses
+
+Overfull \hbox (0.54732pt too wide) in paragraph at lines 1822--1825
+[]\T1/ptm/m/n/10 This func-tion is typ-i-cally used be-fore [][][]\T1/zi4/m/n/10 FixDups()[][][] []\T1/ptm/m/n/10 to help non-technical users iden-tify which columns
+
+[36]
+[37]
+Underfull \hbox (badness 1270) in paragraph at lines 1884--1884
+[]\T1/ptm/m/it/10 Clean du-pli-cated rows caused by multi-value fields in flat-tened
+
+[38]
+Underfull \hbox (badness 1546) in paragraph at lines 1981--1981
+[]\T1/ptm/m/it/10 Flag sus-pi-cious sub-mis-sions and en-force pre/post com-pa-ra-bil-ity
+
+[39]
+Overfull \hbox (22.38083pt too wide) in paragraph at lines 2052--2054
+[]\T1/ptm/m/n/10 One of []\T1/zi4/m/n/10 "flag_only"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_high_risk"[]\T1/ptm/m/n/10 , []\T1/zi4/m/n/10 "exclude_confirmed_duplicates"[]\T1/ptm/m/n/10 . 
+
+[40]
+[41]
+[42]
+Overfull \hbox (0.76538pt too wide) in paragraph at lines 2241--2243
+[]\T1/ptm/m/n/10 Based on stan-dard struc-ture from BC Pub-lic Ser-vice FormIO CHEF struc-ture, pro-cessed and cleaned
+
+[43]
+Overfull \hbox (50.81891pt too wide) in paragraph at lines 2299--2301
+[]\T1/ptm/m/n/10 Character. API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (1.42859pt too wide) in paragraph at lines 2308--2312
+[]\T1/ptm/m/n/10 Folder to write out-put files into. If []\T1/zi4/m/n/10 NULL[]\T1/ptm/m/n/10 , a new folder is cre-ated un-der []\T1/zi4/m/n/10 tempdir()
+
+[44]
+Overfull \hbox (9.47954pt too wide) in paragraph at lines 2358--2361
+[]\T1/ptm/m/n/10 The work-flow also saves your wiz-ard choices to []\T1/zi4/m/n/10 workflow_plan.rds []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 workflow_plan.json
+
+[45]
+[46]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2499--2501
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[47]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2552--2554
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[48]
+Overfull \hbox (47.86887pt too wide) in paragraph at lines 2614--2616
+[]\T1/ptm/m/n/10 Character API base URL. De-fault: []\T1/zi4/m/n/10 "https://submit.digital.gov.bc.ca/app/api/v1"[]\T1/ptm/m/n/10 . 
+
+[49]
+[50]
+[51]
+[52]
+[53]
+Overfull \hbox (16.17767pt too wide) in paragraph at lines 2878--2880
+[]\T1/ptm/m/n/10 This is most use-ful in scripts when you want to con-di-tion-ally add a man-ual note us-ing [][][]\T1/zi4/m/n/10 WriteAuditLog()[][][]
+
+[54]
+[55]
+[56]
+Overfull \hbox (18.6284pt too wide) in paragraph at lines 2987--2989
+[]\T1/ptm/m/n/10 A data.frame of re-sponses, or a list con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 or []\T1/zi4/m/n/10 submission_data[]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (11.28764pt too wide) in paragraph at lines 2990--2992
+[]\T1/ptm/m/n/10 Optional form schema, JSON string, or meta-data ob-ject (see [][][]\T1/zi4/m/n/10 FieldDictionary()[][][][]\T1/ptm/m/n/10 ).
+
+[57]
+[58]
+[59]
+[60]
+[61]
+[62]
+[63]
+[64]
+[65]
+[66]
+[67]
+[68]
+[69]
+Overfull \hbox (0.1385pt too wide) in paragraph at lines 3704--3707
+[]\T1/ptm/m/n/10 Convenience wrap-per around [][][]\T1/zi4/m/n/10 ResponseTimeline()[][][] []\T1/ptm/m/n/10 that draws a sim-ple line chart us-ing base graph-
+
+[70]
+[71]
+[72] (/Users/rodrigo/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[73{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[74]
+Overfull \hbox (7.60999pt too wide) in paragraph at lines 3958--3960
+[]\T1/ptm/m/n/10 List from [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][] []\T1/ptm/m/n/10 con-tain-ing []\T1/zi4/m/n/10 FlatResponses []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 ColumnNames[]\T1/ptm/m/n/10 . 
+
+[75]
+[76]
+[77]
+[78]
+Overfull \hbox (21.41006pt too wide) in paragraph at lines 4190--4190
+ []  \T1/zi4/m/n/10 strategy = c("auto", "concat", "first", "last", "sum", "mean", "count", "count_yes"),[] 
+
+Overfull \hbox (2.0771pt too wide) in paragraph at lines 4220--4225
+\T1/ptm/m/n/10 or nested data-frame columns even af-ter flat-ten-ing. These val-ues are con-verted to read-able JSON/text
+
+[79]
+[80]
+[81]
+Overfull \hbox (9.25803pt too wide) in paragraph at lines 4357--4363
+[]\T1/ptm/m/n/10 Optional. Columns used to de-fine "du-pli-cate sub-mis-sions" (for ex-am-ple []\T1/zi4/m/n/10 username[]\T1/ptm/m/n/10 ,
+
+[82]
+Overfull \hbox (29.25635pt too wide) in paragraph at lines 4426--4426
+ []  \T1/zi4/m/n/9 email = c("x@example.com", "x@example.com", "x@example.com", "x@example.com", "x@example.com"),[] 
+
+[83{/Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[84]
+[85]
+[86]
+Overfull \hbox (43.5373pt too wide) in paragraph at lines 4675--4679
+[]\T1/ptm/m/n/10 Designed for non-technical users: it ac-cepts ei-ther a data frame or the list pro-duced by [][][]\T1/zi4/m/n/10 FlattenSubmissions()[][][]
+
+[87]
+[88]
+[89]
+[90]
+[91]
+[92]
+[93]
+[94]
+[95] (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.ind
+[96]
+
+[97]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 225.
+
+
+[98]
+
+[99]
+
+[100]) (/private/var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T/RtmpEBKzGd/Rd2pdfc90510d53d5a/Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.base::print\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.wordcloud::wordcloud\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.plot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.hist} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.barplot} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stats::p.adjust\(\)} has been referenced but does not exist, replaced by a fixed one
+
+</Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/rodrigo/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (100 pages, 288534 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘FormIOr-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /var/folders/c4/f630vqgj7374d9z7lclxs93h0000gn/T//RtmpEBKzGd/Rd2pdfc90510d53d5a'

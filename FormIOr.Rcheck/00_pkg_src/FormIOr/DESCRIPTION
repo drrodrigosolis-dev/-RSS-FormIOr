@@ -1,0 +1,30 @@
+Package: FormIOr
+Title: Download, Clean, and Export 'FormIO' Submissions
+Version: 1.0.2
+Authors@R: 
+    person("Rodrigo", "Solis Sosa", email = "dr.rodrigo.solis@gmail.com",
+           role = c("aut", "cre"))
+Description: Tools for downloading 'FormIO' submissions via the 'FormIO API'
+    <https://apidocs.form.io>, flattening nested structures, cleaning and
+    simplifying repeated and multi-select answers, generating diagnostics
+    (codebooks, summaries, plots), maintaining audit logs of dataset
+    processing, and exporting results to 'Excel' or delimited files. Includes
+    an interactive end-to-end workflow for non-technical users.
+License: MIT + file LICENSE
+URL: https://github.com/drrodrigosolis-dev/RSS-FormIOr
+BugReports: https://github.com/drrodrigosolis-dev/RSS-FormIOr/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: R (>= 3.5)
+LazyData: true
+Imports: crayon, dplyr, httr, jsonlite, magrittr, purrr, rlang, stats,
+        tibble, tidyr, utils
+Suggests: knitr, miniUI, DT, reactable, openxlsx, pkgdown, rmarkdown,
+        rstudioapi, shiny, testthat (>= 3.0.0), wordcloud, writexl
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2026-02-19 18:38:30 UTC; rodrigo
+Author: Rodrigo Solis Sosa [aut, cre]
+Maintainer: Rodrigo Solis Sosa <dr.rodrigo.solis@gmail.com>
